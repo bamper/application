@@ -1,0 +1,9 @@
+<form action="{{ path('user_resetting_send_email') }} " method="post">
+    {% if invalid_email is defined %}
+        <p>Użytkownik nie istnieje</p>
+    {% endif %}
+
+    <input type="text" name="email" id="email" required placeholder="Adres e-mail">
+    <input type="submit" value="Wyślij">
+
+</form>

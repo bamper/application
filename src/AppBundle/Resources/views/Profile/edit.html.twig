@@ -1,0 +1,17 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_row(form.profile.name) }}
+    {{ form_row(form.profile.surname) }}
+    <hr>
+    {{ form_row(form.user.username) }}
+    {{ form_row(form.user.email) }}
+    {{ form_row(form.user.password.password) }}
+    {{ form_row(form.user.password.confirm) }}
+    <hr>
+    {{ form_row(form.profile.rank) }}
+    {{ form_row(form.profile.steamID) }}
+    {{ form_row(form.Edit) }}
+    {{ form_end(form) }}
+{% endblock %}

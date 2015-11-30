@@ -1,0 +1,21 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <img src="{{ user.profile.steamData.response.players['0'].avatarmedium }}" alt="{{ user.profile.steamData.response.players['0'].personaname }}"/>
+        <a href="{{ path('profile_show', {username:user.username}) }}">{{ user.username }}</a>
+
+        <br/><br/>
+        {% if user.profile.inQueue == false %}
+            <a href="{{ path('players_join_queue') }}">Do�acz do kolejki</a>
+        {% else %}
+            <a href="{{ path('players_search') }}">Opusc kolejke</a>
+        {% endif %}
+
+        <a href="{{ path('players_search') }}">Szukaj graczy</a>
+        <a href="{{ path('players_invites') }}">Moje zaproszenia</a>
+        <a href="{{ path('profile_edit') }}">Edytuj</a>
+        <a href="{{ path('logout') }}">Wyloguj</a>
+    {% endif %}
+
+{% endblock %}

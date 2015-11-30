@@ -1,0 +1,24 @@
+security:
+    providers:
+        database:
+            entity:
+                class: AppBundle:User
+
+    encoders:
+            AppBundle\Entity\User:
+                algorithm: bcrypt
+
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            provider: database
+            anonymous: ~
+            http_basic: ~
+            form_login:
+                login_path:  /login
+                check_path:  /login_check
+                success_handler: authentication_handler
+            logout:
+                path:   /logout
+                target: /
+

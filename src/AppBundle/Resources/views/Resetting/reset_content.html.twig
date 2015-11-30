@@ -1,0 +1,6 @@
+<form action="{{ path('user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="Resetuj" />
+    </div>
+</form>
