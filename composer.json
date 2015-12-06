@@ -21,7 +21,8 @@
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "leaseweb/api-caller-bundle": "*",
-        "hautelook/alice-bundle": "^0.2.0"
+        "hautelook/alice-bundle": "^0.2.0",
+        "nesbot/carbon": "^1.21"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

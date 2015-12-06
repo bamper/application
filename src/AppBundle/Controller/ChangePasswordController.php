@@ -39,7 +39,6 @@ class ChangePasswordController extends Controller
                     'error' => $error
                 ));
             }*/
-
             $user->setPassword($newPassword);
 
             $em->persist($user);
@@ -53,5 +52,7 @@ class ChangePasswordController extends Controller
             'error' => $error = null
         ));
     }
+
+
 
 }

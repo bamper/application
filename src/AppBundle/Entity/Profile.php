@@ -55,25 +55,9 @@ class Profile
     private $user;
 
     /**
-    * @var string
-    *
-    * @ORM\Column(name="in_queue", type="boolean", nullable=true)
-    */
-    private $inQueue;
-
-    /**
      * @ORM\Column(type="json_array", nullable=true)
      */
     private $profileData;
-    private $userStats;
-    private $friends;
-    private $achievements;
-
-    /**
-    *@ORM\Column(name="is_playing", type="json_array", nullable=true)
-    */
-    private $isPlaying;
-
 
     /**
      * Get id
@@ -178,6 +162,29 @@ class Profile
     }
 
     /**
+     * Set profileData
+     *
+     * @param array $profileData
+     * @return Profile
+     */
+    public function setProfileData($profileData)
+    {
+        $this->profileData = $profileData;
+
+        return $this;
+    }
+
+    /**
+     * Get profileData
+     *
+     * @return array 
+     */
+    public function getProfileData()
+    {
+        return $this->profileData;
+    }
+
+    /**
      * Set user
      *
      * @param \AppBundle\Entity\User $user
@@ -198,173 +205,5 @@ class Profile
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set inQueue
-     *
-     * @param boolean $inQueue
-     * @return Profile
-     */
-    public function setInQueue($inQueue)
-    {
-        $this->inQueue = $inQueue;
-
-        return $this;
-    }
-
-    /**
-     * Get inQueue
-     *
-     * @return boolean 
-     */
-    public function getInQueue()
-    {
-        return $this->inQueue;
-    }
-
-    /**
-     * Set steamData
-     *
-     * @param array $steamData
-     * @return Profile
-     */
-    public function setSteamData($steamData)
-    {
-        $this->steamData = $steamData;
-
-        return $this;
-    }
-
-    /**
-     * Get steamData
-     *
-     * @return array 
-     */
-    public function getSteamData()
-    {
-        return $this->steamData;
-    }
-
-    /**
-     * Set userStats
-     *
-     * @param array $userStats
-     * @return Profile
-     */
-    public function setUserStats($userStats)
-    {
-        $this->userStats = $userStats;
-
-        return $this;
-    }
-
-    /**
-     * Get userStats
-     *
-     * @return array 
-     */
-    public function getUserStats()
-    {
-        return $this->userStats;
-    }
-
-    /**
-     * Set friends
-     *
-     * @param array $friends
-     * @return Profile
-     */
-    public function setFriends($friends)
-    {
-        $this->friends = $friends;
-
-        return $this;
-    }
-
-    /**
-     * Get friends
-     *
-     * @return array 
-     */
-    public function getFriends()
-    {
-        return $this->friends;
-    }
-
-    /**
-     * Set achievements
-     *
-     * @param array $achievements
-     * @return Profile
-     */
-    public function setAchievements($achievements)
-    {
-        $this->achievements = $achievements;
-
-        return $this;
-    }
-
-    /**
-     * Get achievements
-     *
-     * @return array 
-     */
-    public function getAchievements()
-    {
-        return $this->achievements;
-    }
-
-    /**
-     * Set isPlaying
-     *
-     * @param array $isPlaying
-     * @return Profile
-     */
-    public function setIsPlaying($isPlaying)
-    {
-        $this->isPlaying = $isPlaying;
-
-        return $this;
-    }
-
-    /**
-     * Get isPlaying
-     *
-     * @return array 
-     */
-    public function getIsPlaying()
-    {
-        return $this->isPlaying;
-    }
-
-    /**
-     * Set firstLogin
-     *
-     * @param boolean $firstLogin
-     * @return Profile
-     */
-
-    /**
-     * Set profileData
-     *
-     * @param array $profileData
-     * @return Profile
-     */
-    public function setProfileData($profileData)
-    {
-        $this->profileData = $profileData;
-
-        return $this;
-    }
-
-    /**
-     * Get profileData
-     *
-     * @return json_array
-     */
-    public function getProfileData()
-    {
-        return $this->profileData;
     }
 }

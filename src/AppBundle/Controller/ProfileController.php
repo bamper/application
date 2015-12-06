@@ -17,6 +17,7 @@ use Lsw\ApiCallerBundle\Call\HttpGetJson;
 
 class ProfileController extends Controller
 {
+    
     public function showAction()
     {
         if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -81,5 +82,4 @@ class ProfileController extends Controller
             'form' => $form->createView()
         ));
     }
-
 }

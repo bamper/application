@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Model\Registration;
@@ -14,7 +13,10 @@ use AppBundle\Mailer;
 
 class RegistrationController extends Controller
 {
-
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function registerAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -54,6 +56,11 @@ class RegistrationController extends Controller
         );
     }
 
+    /**
+     * @param Request $request
+     * @param $token
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function confirmAction(Request $request, $token)
     {
         $em = $this->getDoctrine()->getManager();
@@ -63,7 +70,7 @@ class RegistrationController extends Controller
 
         if (!$user)
         {
-            throw $this->createNotFoundException('Nie znaleziono użytkownika');
+            throw $this->createNotFoundException('Invalid token.');
         }
 
         $user->setConfirmationToken(null);
@@ -75,6 +82,9 @@ class RegistrationController extends Controller
         return $this->redirectToRoute('user_registration_confirmed');
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function confirmedAction()
     {
         return $this->render('AppBundle:Registration:confirmed.html.twig');

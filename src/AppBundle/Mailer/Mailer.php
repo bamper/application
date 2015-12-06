@@ -13,12 +13,19 @@ class Mailer
     private $mailer;
     private $templating;
 
+    /**
+     * Mailer constructor.
+     * @param ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->mailer = $container->get("mailer");
         $this->templating = $container->get('templating');
     }
 
+    /**
+     * @param User $user
+     */
     public function sendConfirmationEmailMessage(User $user)
     {
         /* Variables used in template */
@@ -40,6 +47,9 @@ class Mailer
         $this->sendEmailMessage($renderedTemplate, $subject, $email);
     }
 
+    /**
+     * @param User $user
+     */
     public function sendResettingEmailMessage(User $user)
     {
         /* Variables used in template */

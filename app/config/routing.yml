@@ -2,9 +2,9 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-page_homepage:
+pages_index:
     path:     /
-    defaults: { _controller: AppBundle:Page:index }
+    defaults:  { _controller: AppBundle:Page:index }
 
 
 user_registration_register:
@@ -48,13 +48,13 @@ user_profile_first_login:
     defaults: { _controller: AppBundle:FirstLogin:firstLogin }
 
 players_show:
-    path:     /players
+    path:     /players/
     defaults: { _controller: AppBundle:Players:show }
 
-user_post_show:
-    path:     /players/post
+players_post:
+    path:     /post/{id}
     defaults: { _controller: AppBundle:Post:show }
 
-user_post_create:
-    path:     /players/create
+players_create_post:
+    path:     /post/create
     defaults: { _controller: AppBundle:Post:create }

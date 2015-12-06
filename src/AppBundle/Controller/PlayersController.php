@@ -36,7 +36,7 @@ class PlayersController extends Controller
                 ->from('AppBundle:User', 'u')
                 // spell out your join condition
                 ->join('u.profile', 'p')
-                ->join('u.announcement', 'a')
+                ->join('u.post', 'a')
                 ->where($qb->expr()->between(
                     'p.rank',
                     ':min',
@@ -71,5 +71,4 @@ class PlayersController extends Controller
             'form' => $form->createView()
         ));
     }
-
 }

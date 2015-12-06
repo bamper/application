@@ -2,11 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Type\FirstLoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Form\Type\FirstLoginType;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class FirstLoginController extends Controller
 {
