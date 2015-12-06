@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AuthenticationHandler extends ContainerAware implements AuthenticationSuccessHandlerInterface
 {
+    
 
     function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
