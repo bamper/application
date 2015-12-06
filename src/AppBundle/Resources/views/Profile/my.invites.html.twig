@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+
+    {% if players|length != 0 %}
+        <h3>Zaproszenia</h3>
+        {% for player in players %}
+        <p>{{ player.username }} : <a href="{{ path('players_cancel_invite', { 'id': player.id }) }}">Anuluj</a></p>
+        {% endfor %}
+    {% endif %}
+{%endblock%}

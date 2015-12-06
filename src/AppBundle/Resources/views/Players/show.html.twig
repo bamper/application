@@ -1,0 +1,24 @@
+{% extends '::layout.html.twig' %}
+
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block content %}
+
+{{ form(form) }}
+
+    {% if players is defined %}
+        <div class="row">
+        {% for player in players %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumbnail">
+                    <img class="img-circle pull-left" src="{{ player.profile.profileData.response.players['0'].avatarmedium }}" alt=""/>
+                    {{ player.username }}<br>
+
+                    <span><a class="text-muted" href="{{ player.profile.profileData.response.players['0'].profileurl }}">{{ player.profile.profileData.response.players['0'].personaname }}</a></span></td>
+                    {{ player.profile.rank }}
+                </div>
+               {# <td><a href="{{ path('players_invite', { 'username': player.username }) }}">Invite</a></td>#}
+        {% endfor %}
+        </div>
+    {% endif %}
+
+{% endblock %}
