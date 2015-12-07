@@ -22,23 +22,23 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_268fd1d0b61fde553375af17bf8b4ef565ddebcbff3c71f8721e48b82e679253 = $this->env->getExtension("native_profiler");
-        $__internal_268fd1d0b61fde553375af17bf8b4ef565ddebcbff3c71f8721e48b82e679253->enter($__internal_268fd1d0b61fde553375af17bf8b4ef565ddebcbff3c71f8721e48b82e679253_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::layout.html.twig"));
+        $__internal_ba16962a6966ef60fd9883cd33cd6446951182f08123fe7c2a10fbdf9c70dc07 = $this->env->getExtension("native_profiler");
+        $__internal_ba16962a6966ef60fd9883cd33cd6446951182f08123fe7c2a10fbdf9c70dc07->enter($__internal_ba16962a6966ef60fd9883cd33cd6446951182f08123fe7c2a10fbdf9c70dc07_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::layout.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_268fd1d0b61fde553375af17bf8b4ef565ddebcbff3c71f8721e48b82e679253->leave($__internal_268fd1d0b61fde553375af17bf8b4ef565ddebcbff3c71f8721e48b82e679253_prof);
+        $__internal_ba16962a6966ef60fd9883cd33cd6446951182f08123fe7c2a10fbdf9c70dc07->leave($__internal_ba16962a6966ef60fd9883cd33cd6446951182f08123fe7c2a10fbdf9c70dc07_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_818904ee0eeb22f6f10dbc3ef0cd6cd6cbee0aac177011f50444e467d6a19910 = $this->env->getExtension("native_profiler");
-        $__internal_818904ee0eeb22f6f10dbc3ef0cd6cd6cbee0aac177011f50444e467d6a19910->enter($__internal_818904ee0eeb22f6f10dbc3ef0cd6cd6cbee0aac177011f50444e467d6a19910_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_f9321ee4951c0c40d9c41a05b1514d348cb5f6a8dbfbc6223e590c3b66d4e226 = $this->env->getExtension("native_profiler");
+        $__internal_f9321ee4951c0c40d9c41a05b1514d348cb5f6a8dbfbc6223e590c3b66d4e226->enter($__internal_f9321ee4951c0c40d9c41a05b1514d348cb5f6a8dbfbc6223e590c3b66d4e226_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
-        echo "    <nav class=\"navbar navbar-inverse\">
+        echo "    <nav class=\"navbar navbar-default navbar-inverse\">
         <div class=\"container\">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class=\"navbar-header\">
@@ -50,54 +50,119 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
                 </button>
                 <a class=\"navbar-brand\" href=\"#\">Application</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
-
-                <!-- Single button -->
-                <div class=\"btn-group navbar-right\">
-                    <button type=\"button\" class=\"btn navbar-btn btn-warning dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                        Action <span class=\"caret\"></span>
-                    </button>
-                    <ul class=\"dropdown-menu\">
-                        <li><a href=\"#\">Action</a></li>
-                        <li><a href=\"#\">Another action</a></li>
-                        <li><a href=\"#\">Something else here</a></li>
-                        <li role=\"separator\" class=\"divider\"></li>
-                        <li><a href=\"#\">Separated link</a></li>
-                    </ul>
-                </div>
-
                 <ul class=\"nav navbar-nav navbar-right\">
                     <li><a href=\"#\">Home</a></li>
                     <li><a href=\"#\">FAQ</a></li>
                     <li><a href=\"#\">Kontakt</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-
+                    ";
+        // line 21
+        if ( !$this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 22
+            echo "                        <a href=\"#\" data-toggle=\"modal\" data-target=\".bs-example-modal-sm\"type=\"button\" class=\"btn btn-warning navbar-btn navbar-right btn-login\">Zaloguj się</a>
+                    ";
+        } else {
+            // line 24
+            echo "                    <li class=\"dropdown\">
+                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"><img
+                                    src=\"";
+            // line 26
+            if (array_key_exists("user", $context)) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "profile", array()), "profileData", array()), "response", array()), "players", array()), 0, array(), "array"), "avatar", array()), "html", null, true);
+                echo " ";
+            }
+            echo "\" alt=\"Avatar\" class=\"navbar-img img-circle\"></a>
+                        <ul class=\"dropdown-menu\">
+                            <li><a href=\"";
+            // line 28
+            echo $this->env->getExtension('routing')->getPath("user_profile_show");
+            echo "\">Profil</a></li>
+                            <li><a href=\"#\">Ustawienia</a></li>
+                            <li role=\"separator\" class=\"divider\"></li>
+                            <li><a href=\"";
+            // line 31
+            echo $this->env->getExtension('routing')->getPath("logout");
+            echo "\">Wyloguj</a></li>
+                        </ul>
+                    </li>
+                    ";
+        }
+        // line 35
+        echo "                </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
     <div class=\"container\" style=\"padding-top: 75px;\">
         ";
-        // line 43
+        // line 40
         $this->displayBlock('content', $context, $blocks);
-        // line 44
+        // line 41
         echo "    </div>
+
+    <div id=\"loginModal\" class=\"modal fade bs-example-modal-sm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\">
+        <div class=\"modal-dialog modal-sm\">
+            <div class=\"modal-content\">
+                <div class=\"panel panel-default\">
+                    <div class=\"panel-heading\">
+                        <h3 class=\"panel-title\">Logowanie</h3>
+                    </div>
+                    <div class=\"panel-body\">
+                        <form action=\"";
+        // line 51
+        echo $this->env->getExtension('routing')->getPath("login_check");
+        echo "\" method=\"post\" id=\"loginForm\">
+                            <div class=\"form-group\">
+                                <input class=\"form-control\" type=\"text\" id=\"username\" name=\"_username\" value=\"";
+        // line 53
+        if (array_key_exists("last_username", $context)) {
+            echo " ";
+            echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
+            echo " ";
+        }
+        echo "\" placeholder=\"Nazwa użytkownika\"/>
+                            </div>
+
+                            <div class=\"form-group\">
+                                <input class=\"form-control\" type=\"password\" id=\"password\" name=\"_password\" placeholder=\"Hasło\" />
+                            </div>
+
+                            <p><a href=\"";
+        // line 60
+        echo $this->env->getExtension('routing')->getPath("user_resetting_request");
+        echo "\" class=\"small\">Zapomniałeś hasła?</a></p>
+                            <p><a href=\"";
+        // line 61
+        echo $this->env->getExtension('routing')->getPath("user_registration_register");
+        echo "\" class=\"small\">Zarejestruj się</a></p>
+
+                            <input type=\"hidden\" name=\"_target_path\" value=\"/profile\" />
+                            <div class=\"form-group\">
+                                <button class=\"form-control btn btn-primary\" type=\"submit\" id=\"login-submit-button\">Zaloguj się</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 ";
         
-        $__internal_818904ee0eeb22f6f10dbc3ef0cd6cd6cbee0aac177011f50444e467d6a19910->leave($__internal_818904ee0eeb22f6f10dbc3ef0cd6cd6cbee0aac177011f50444e467d6a19910_prof);
+        $__internal_f9321ee4951c0c40d9c41a05b1514d348cb5f6a8dbfbc6223e590c3b66d4e226->leave($__internal_f9321ee4951c0c40d9c41a05b1514d348cb5f6a8dbfbc6223e590c3b66d4e226_prof);
 
     }
 
-    // line 43
+    // line 40
     public function block_content($context, array $blocks = array())
     {
-        $__internal_4d6188528407361d339f77d718478e83a342bf7fc7d31e09367f4a4037294881 = $this->env->getExtension("native_profiler");
-        $__internal_4d6188528407361d339f77d718478e83a342bf7fc7d31e09367f4a4037294881->enter($__internal_4d6188528407361d339f77d718478e83a342bf7fc7d31e09367f4a4037294881_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_d5380553e0920ae1dde827c69a896ac36c2d5f2ae6f7d3b67e838bdbd35a0ab1 = $this->env->getExtension("native_profiler");
+        $__internal_d5380553e0920ae1dde827c69a896ac36c2d5f2ae6f7d3b67e838bdbd35a0ab1->enter($__internal_d5380553e0920ae1dde827c69a896ac36c2d5f2ae6f7d3b67e838bdbd35a0ab1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         echo " ";
         
-        $__internal_4d6188528407361d339f77d718478e83a342bf7fc7d31e09367f4a4037294881->leave($__internal_4d6188528407361d339f77d718478e83a342bf7fc7d31e09367f4a4037294881_prof);
+        $__internal_d5380553e0920ae1dde827c69a896ac36c2d5f2ae6f7d3b67e838bdbd35a0ab1->leave($__internal_d5380553e0920ae1dde827c69a896ac36c2d5f2ae6f7d3b67e838bdbd35a0ab1_prof);
 
     }
 
@@ -113,12 +178,12 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 
     public function getDebugInfo()
     {
-        return array (  93 => 43,  85 => 44,  83 => 43,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  158 => 40,  136 => 61,  132 => 60,  118 => 53,  113 => 51,  101 => 41,  99 => 40,  92 => 35,  85 => 31,  79 => 28,  71 => 26,  67 => 24,  63 => 22,  61 => 21,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends '::base.html.twig' %}*/
 /* {% block body %}*/
-/*     <nav class="navbar navbar-inverse">*/
+/*     <nav class="navbar navbar-default navbar-inverse">*/
 /*         <div class="container">*/
 /*             <!-- Brand and toggle get grouped for better mobile display -->*/
 /*             <div class="navbar-header">*/
@@ -130,34 +195,64 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 /*                 </button>*/
 /*                 <a class="navbar-brand" href="#">Application</a>*/
 /*             </div>*/
-/* */
 /*             <!-- Collect the nav links, forms, and other content for toggling -->*/
 /*             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">*/
-/* */
-/*                 <!-- Single button -->*/
-/*                 <div class="btn-group navbar-right">*/
-/*                     <button type="button" class="btn navbar-btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/
-/*                         Action <span class="caret"></span>*/
-/*                     </button>*/
-/*                     <ul class="dropdown-menu">*/
-/*                         <li><a href="#">Action</a></li>*/
-/*                         <li><a href="#">Another action</a></li>*/
-/*                         <li><a href="#">Something else here</a></li>*/
-/*                         <li role="separator" class="divider"></li>*/
-/*                         <li><a href="#">Separated link</a></li>*/
-/*                     </ul>*/
-/*                 </div>*/
-/* */
 /*                 <ul class="nav navbar-nav navbar-right">*/
 /*                     <li><a href="#">Home</a></li>*/
 /*                     <li><a href="#">FAQ</a></li>*/
 /*                     <li><a href="#">Kontakt</a></li>*/
+/*                     {% if not is_granted('IS_AUTHENTICATED_FULLY') %}*/
+/*                         <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm"type="button" class="btn btn-warning navbar-btn navbar-right btn-login">Zaloguj się</a>*/
+/*                     {% else %}*/
+/*                     <li class="dropdown">*/
+/*                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img*/
+/*                                     src="{% if user is defined %}{{user.profile.profileData.response.players[0].avatar }} {% endif %}" alt="Avatar" class="navbar-img img-circle"></a>*/
+/*                         <ul class="dropdown-menu">*/
+/*                             <li><a href="{{ path('user_profile_show') }}">Profil</a></li>*/
+/*                             <li><a href="#">Ustawienia</a></li>*/
+/*                             <li role="separator" class="divider"></li>*/
+/*                             <li><a href="{{ path('logout') }}">Wyloguj</a></li>*/
+/*                         </ul>*/
+/*                     </li>*/
+/*                     {% endif %}*/
 /*                 </ul>*/
-/*             </div><!-- /.navbar-collapse -->*/
-/*         </div><!-- /.container-fluid -->*/
-/*     </nav>*/
-/* */
+/*     </div><!-- /.navbar-collapse -->*/
+/*   </div><!-- /.container-fluid -->*/
+/* </nav>*/
 /*     <div class="container" style="padding-top: 75px;">*/
 /*         {% block content %} {% endblock %}*/
+/*     </div>*/
+/* */
+/*     <div id="loginModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">*/
+/*         <div class="modal-dialog modal-sm">*/
+/*             <div class="modal-content">*/
+/*                 <div class="panel panel-default">*/
+/*                     <div class="panel-heading">*/
+/*                         <h3 class="panel-title">Logowanie</h3>*/
+/*                     </div>*/
+/*                     <div class="panel-body">*/
+/*                         <form action="{{ path('login_check') }}" method="post" id="loginForm">*/
+/*                             <div class="form-group">*/
+/*                                 <input class="form-control" type="text" id="username" name="_username" value="{% if last_username is defined %} {{ last_username }} {% endif %}" placeholder="Nazwa użytkownika"/>*/
+/*                             </div>*/
+/* */
+/*                             <div class="form-group">*/
+/*                                 <input class="form-control" type="password" id="password" name="_password" placeholder="Hasło" />*/
+/*                             </div>*/
+/* */
+/*                             <p><a href="{{ path('user_resetting_request') }}" class="small">Zapomniałeś hasła?</a></p>*/
+/*                             <p><a href="{{ path('user_registration_register') }}" class="small">Zarejestruj się</a></p>*/
+/* */
+/*                             <input type="hidden" name="_target_path" value="/profile" />*/
+/*                             <div class="form-group">*/
+/*                                 <button class="form-control btn btn-primary" type="submit" id="login-submit-button">Zaloguj się</button>*/
+/*                             </div>*/
+/* */
+/* */
+/*                         </form>*/
+/*                     </div>*/
+/*                 </div>*/
+/*             </div>*/
+/*         </div>*/
 /*     </div>*/
 /* {% endblock %}*/

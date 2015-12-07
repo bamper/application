@@ -16,8 +16,11 @@ security:
             http_basic: ~
             form_login:
                 login_path:  /login
-                check_path:  /login_check
-                success_handler: authentication_handler
+                #check_path:  /login_check
+                #success_handler: authentication_handler
+                check_path:      /login_check
+                success_handler: security.authentication_handler
+                failure_handler: security.authentication_handler
             logout:
                 path:   /logout
                 target: /

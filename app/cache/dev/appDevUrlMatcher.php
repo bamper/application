@@ -148,13 +148,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // page_homepage
+        // pages_index
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'page_homepage');
+                return $this->redirect($pathinfo.'/', 'pages_index');
             }
 
-            return array (  '_controller' => 'AppBundle\\Controller\\PageController::indexAction',  '_route' => 'page_homepage',);
+            return array (  '_controller' => 'AppBundle\\Controller\\PageController::indexAction',  '_route' => 'pages_index',);
         }
 
         if (0 === strpos($pathinfo, '/re')) {
@@ -227,20 +227,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/players')) {
-                // players_show
-                if ($pathinfo === '/players') {
-                    return array (  '_controller' => 'AppBundle\\Controller\\PlayersController::showAction',  '_route' => 'players_show',);
+            // players_show
+            if (rtrim($pathinfo, '/') === '/players') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'players_show');
                 }
 
-                // user_post_show
-                if ($pathinfo === '/players/post') {
-                    return array (  '_controller' => 'AppBundle\\Controller\\PostController::showAction',  '_route' => 'user_post_show',);
+                return array (  '_controller' => 'AppBundle\\Controller\\PlayersController::showAction',  '_route' => 'players_show',);
+            }
+
+            if (0 === strpos($pathinfo, '/post')) {
+                // players_post
+                if (preg_match('#^/post/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'players_post')), array (  '_controller' => 'AppBundle\\Controller\\PostController::showAction',));
                 }
 
-                // user_post_create
-                if ($pathinfo === '/players/create') {
-                    return array (  '_controller' => 'AppBundle\\Controller\\PostController::createAction',  '_route' => 'user_post_create',);
+                // players_create_post
+                if ($pathinfo === '/post/create') {
+                    return array (  '_controller' => 'AppBundle\\Controller\\PostController::createAction',  '_route' => 'players_create_post',);
                 }
 
             }

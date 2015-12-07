@@ -6,31 +6,96 @@ use Carbon\Carbon;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 
-class AuthenticationHandler extends ContainerAware implements AuthenticationSuccessHandlerInterface
+class AuthenticationHandler extends ContainerAware implements AuthenticationSuccessHandlerInterface, AuthenticationFailureHandlerInterface
 {
-    
+    private $router;
+    private $session;
 
-    function onAuthenticationSuccess(Request $request, TokenInterface $token)
+    public function __construct(RouterInterface $router, Session $session)
     {
+        $this->router = $router;
+        $this->session = $session;
+    }
 
-        $token->getUser()->setLastLogin(Carbon::now());
-        $this->container->get('doctrine')->getEntityManager()->flush();
-        $this->container->get('app.steam')->update($token->getUser());
+/*
+        $token->getuser()->setlastlogin(carbon::now());
+        $this->container->get('doctrine')->getentitymanager()->flush();
+        $this->container->get('app.steam')->update($token->getuser());
 
-        $firstLogin = $token->getUser()->getFirstLogin();
-        if(!$firstLogin)
+        $firstlogin = $token->getuser()->getfirstlogin();
+        if(!$firstlogin)
         {
-            return new RedirectResponse($this->container->get('router')->generate('user_profile_show'));
+            return new redirectresponse($this->container->get('router')->generate('user_profile_show'));
         }
         else
         {
-            return new RedirectResponse($this->container->get('router')->generate('user_profile_first_login'));
-        }
+            return new redirectresponse($this->container->get('router')->generate('user_profile_first_login'));
+        }*/
 
+    public function onAuthenticationSuccess( Request $request, TokenInterface $token )
+    {
+        // if AJAX login
+        if ( $request->isXmlHttpRequest() ) {
+
+            $array = array( 'success' => true ); // data to return via JSON
+            $response = new Response( json_encode( $array ) );
+            $response->headers->set( 'Content-Type', 'application/json' );
+
+            return $response;
+
+            // if form login
+        } else {
+
+            if ( $this->session->get('_security.main.target_path' ) ) {
+
+                $url = $this->session->get( '_security.main.target_path' );
+
+            } else {
+
+                $url = $this->router->generate( 'pages_index' );
+
+            } // end if
+
+            return new RedirectResponse( $url );
+
+        }
     }
 
+        /**
+         * onAuthenticationFailure
+         *
+         * @author 	Joe Sexton <joe@webtipblog.com>
+         * @param 	Request $request
+         * @param 	AuthenticationException $exception
+         * @return 	Response
+         */
+        public function onAuthenticationFailure( Request $request, AuthenticationException $exception )
+    {
+        // if AJAX login
+        if ( $request->isXmlHttpRequest() ) {
+
+            $array = array( 'success' => false, 'message' => $exception->getMessage() ); // data to return via JSON
+            $response = new Response( json_encode( $array ) );
+            $response->headers->set( 'Content-Type', 'application/json' );
+
+            return $response;
+
+            // if form login
+        } else {
+
+            // set authentication exception to session
+            $request->getSession()->set(SecurityContextInterface::AUTHENTICATION_ERROR, $exception);
+
+            return new RedirectResponse( $this->router->generate( 'login_route' ) );
+        }
+    }
 }

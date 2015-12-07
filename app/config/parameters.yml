@@ -4,7 +4,7 @@ parameters:
     database_port: null
     database_name: symfony
     database_user: root
-    database_password: patryk89
+    database_password: patryk
     mailer_transport: gmail
     mailer_host: null
     mailer_user: symfonyapp7
