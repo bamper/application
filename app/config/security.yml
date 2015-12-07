@@ -21,6 +21,7 @@ security:
                 check_path:      /login_check
                 success_handler: security.authentication_handler
                 failure_handler: security.authentication_handler
+                require_previous_session: false
             logout:
                 path:   /logout
                 target: /
