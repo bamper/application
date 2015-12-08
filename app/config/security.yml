@@ -16,12 +16,16 @@ security:
             http_basic: ~
             form_login:
                 login_path:  /login
-                #check_path:  /login_check
-                #success_handler: authentication_handler
                 check_path:      /login_check
                 success_handler: security.authentication_handler
                 failure_handler: security.authentication_handler
                 require_previous_session: false
+                csrf_provider: security.csrf.token_manager
+                default_target_path: /players
+            remember_me:
+                key:   "%secret%"
+                lifetime: 604800 # 1 week in seconds
+                path:     /
             logout:
                 path:   /logout
                 target: /

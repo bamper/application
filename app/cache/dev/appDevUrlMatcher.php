@@ -237,14 +237,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             if (0 === strpos($pathinfo, '/post')) {
-                // players_post
-                if (preg_match('#^/post/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'players_post')), array (  '_controller' => 'AppBundle\\Controller\\PostController::showAction',));
-                }
-
                 // players_create_post
                 if ($pathinfo === '/post/create') {
                     return array (  '_controller' => 'AppBundle\\Controller\\PostController::createAction',  '_route' => 'players_create_post',);
+                }
+
+                // players_post
+                if (preg_match('#^/post/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'players_post')), array (  '_controller' => 'AppBundle\\Controller\\PostController::showAction',));
                 }
 
             }
