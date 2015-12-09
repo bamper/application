@@ -4,7 +4,7 @@
 
 {% block content %}
 
- {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+ {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': 'registrationForm'}}) }}
         {{ form_errors(form) }}
 
         {{ form_errors(form.user.username) }}

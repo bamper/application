@@ -10,24 +10,12 @@ services:
         class: AppBundle\Mailer\Mailer
         arguments: ["@service_container"]
 
-    authentication_handler:
-        class: AppBundle\Handler\AuthenticationHandler
-        calls:
-          - [ setContainer, [ @service_container ] ]
-
     security.authentication_handler:
-            class: AppBundle\Handler\AuthenticationHandler
-            public: false
-            arguments:
-                - @router
-                - @session
-
-#    app.steam:
-#       class: AppBundle\Helper\steamDataHelper
-#       arguments:
-#           - [%steamID]
-#       calls:
-#           - [ setContainer,[ @service_container ] ]
+        class: AppBundle\Handler\AuthenticationHandler
+        public: false
+        arguments:
+            - @router
+            - @session
 
     app.steam:
         class:  AppBundle\Helper\steamHelper
@@ -35,3 +23,6 @@ services:
             - [%id]
         calls:
             - [ setContainer, [ @service_container ] ]
+
+    form.errorMessages:
+        class: AppBundle\Helper\FormErrorMessages

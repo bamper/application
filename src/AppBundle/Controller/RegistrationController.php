@@ -10,6 +10,8 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\Profile;
 use AppBundle\Entity\Player;
 use AppBundle\Mailer;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Form\Form;
 
 class RegistrationController extends Controller
 {
@@ -30,6 +32,9 @@ class RegistrationController extends Controller
             $factory = $this->get('security.encoder_factory');
             $user = new User();
 
+            /**
+             * Password hashing
+             */
             $encoder = $factory->getEncoder($user);
             $password = $encoder->encodePassword($registration->getUser()->getPassword(), $user->getSalt());
             $registration->getUser()->setPassword($password);
@@ -38,6 +43,9 @@ class RegistrationController extends Controller
             $profile = new Profile();
             $player = new Player();
 
+            /**
+             * Send confirmation email message
+             */
             $mailer = $this->get('app.mailer');
             $mailer->sendConfirmationEmailMessage($registration->getUser());
 
@@ -47,7 +55,24 @@ class RegistrationController extends Controller
             $registration->getUser()->setPlayer($player);
             $em->flush();
 
-            return $this->render('AppBundle:Registration:success.html.twig');
+            if ($request->isXmlHttpRequest())
+            {
+
+                $array = array( 'success' => 'true', 'message' => 'Twoje konto zostało utworzone. Musisz potwierdzić swój adres email.' );
+                $response = new JsonResponse($array);
+
+                return $response;
+
+            }
+        } else {
+            if($request->isXmlHttpRequest())
+            {
+                $errors = $this->get('form.errorMessages')->getErrorMessages($form);
+                $array = array( 'status' => 400, 'errors' => $errors);
+                $response = new JsonResponse($array);
+
+                return $response;
+            }
         }
 
         return $this->render(

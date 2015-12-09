@@ -8,13 +8,11 @@ $(document).ready(function() {
 
     $("#loginForm").submit(function(e)
     {
-        var postData = $(this).serializeArray();
-        var formURL = $(this).attr("action");
         $.ajax(
             {
-                url : formURL,
-                type: "POST",
-                data : postData,
+                url : $(this).attr('action'),
+                type: $(this).attr('method'),
+                data : $(this).serializeArray(),
                 beforeSend: function()
                 {
                   $("#login-submit-button").html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');
@@ -40,8 +38,22 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    /*$("#login-submit-button").click(function() {
-            $('#loginModal').modal('toggle')
-        }
-    )*/
+    $("#registrationForm").submit(function(e) {
+        $.ajax({
+            url : $(this).attr('action'),
+            type: $(this).attr('method'),
+            data : $(this).serializeArray(),
+            beforeSend: function()
+            {
+                console.log("Sending request.")
+            },
+            success: function(data)
+            {
+                console.log("Response received");
+                console.log(data.status);
+                console.log(data.errors);
+            }
+        });
+        e.preventDefault();
+    });
 });
