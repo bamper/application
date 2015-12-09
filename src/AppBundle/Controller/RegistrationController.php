@@ -58,7 +58,7 @@ class RegistrationController extends Controller
             if ($request->isXmlHttpRequest())
             {
 
-                $array = array( 'success' => 'true', 'message' => 'Twoje konto zostało utworzone. Musisz potwierdzić swój adres email.' );
+                $array = array( 'status' => 200, 'message' => 'Twoje konto zostało utworzone. Musisz potwierdzić swój adres email.' );
                 $response = new JsonResponse($array);
 
                 return $response;

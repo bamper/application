@@ -45,13 +45,32 @@ $(document).ready(function() {
             data : $(this).serializeArray(),
             beforeSend: function()
             {
-                console.log("Sending request.")
+                console.log("Sending request.");
+                /*$("#registration_Register").html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');*/
             },
             success: function(data)
             {
                 console.log("Response received");
                 console.log(data.status);
-                console.log(data.errors);
+
+                $(".help-block").remove();
+
+                if(data.status == 400)
+                {
+                    $.each( data.errors.user, function( key, value ) {
+                        if (key == "password") {
+                            $("#registration_user_password_password").before('<span class="help-block"><span class="glyphicon glyphicon-exclamation-sign text-danger"></span> ' +data.errors.user.password.password+ '</span>');
+                            console.log( key +": "+ data.errors.user.password.password);
+                        } else {
+                            /*$("#registration_error_"+key).remove();*/
+                            $("#registration_user_"+key).before('<span class="help-block"><span class="glyphicon glyphicon-exclamation-sign text-danger"></span> ' +value+ '</span>');
+                            console.log(key + ": " + value);
+                        }
+                    });
+                } else if(data.status == 200)
+                {
+                    $("#registrationForm").before('<span class="help-block"><span class="glyphicon glyphicon-ok-circle text-success"></span> ' + data.message + '</span>').remove();
+                }
             }
         });
         e.preventDefault();

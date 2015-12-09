@@ -16,6 +16,7 @@ class UserType extends AbstractType
             'first_name'  => 'password',
             'second_name' => 'confirm',
             'type'        => 'password',
+            'invalid_message' => 'Hasła różnią się od siebie'
         ));
     }
 

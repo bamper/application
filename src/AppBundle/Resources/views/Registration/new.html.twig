@@ -1,25 +1,30 @@
 {% extends '::layout.html.twig' %}
 
-{% form_theme form 'bootstrap_3_layout.html.twig' %}
-
 {% block content %}
 
  {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': 'registrationForm'}}) }}
         {{ form_errors(form) }}
 
-        {{ form_errors(form.user.username) }}
-        {{ form_widget(form.user.username, {'attr': {'placeholder': 'Username'} }) }}
-       <br>
-        {{ form_errors(form.user.email) }}
-        {{ form_widget(form.user.email, {'attr': {'placeholder': 'E-mail'} }) }}
-       <br>
-        {{ form_errors(form.user.password.password) }}
-        {{ form_widget(form.user.password.password, {'attr': {'placeholder': 'Password'} }) }}
-       <br>
-        {{ form_errors(form.user.password.confirm) }}
-        {{ form_widget(form.user.password.confirm, {'attr': {'placeholder': 'Retype password'} }) }}
-       <br>
-        {{ form_row(form.Register) }}
-       {{ form_end(form) }}
+    <div class="form-group">
+        {{ form_widget(form.user.username, {'attr': {'placeholder': 'Username', 'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.user.email, {'attr': {'placeholder': 'E-mail', 'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.user.password.password, {'attr': {'placeholder': 'Password', 'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.user.password.confirm, {'attr': {'placeholder': 'Retype password', 'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_row(form.Register, {'attr': {'class': 'btn btn-default'}}) }}
+    </div>
+
+    {{ form_end(form) }}
 
 {% endblock %}
