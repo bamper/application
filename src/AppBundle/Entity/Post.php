@@ -3,6 +3,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Announcement
  *
@@ -19,17 +21,8 @@ class Post
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="createdAt", type="datetime")
-     */
-    private $createdAt;
-
     /**
      * @var integer
-     *
      * @ORM\Column(name="views", type="integer")
      */
     private $views;
@@ -45,8 +38,19 @@ class Post
      * @var string
      *
      * @ORM\Column(name="note", type="string", length=255)
+     * @Assert\NotBlank(
+     *     message = "Nie podałeś treści notatki"
+     * )
      */
     private $note;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $createdAt;
 
     /**
      * @var \DateTime
@@ -57,6 +61,7 @@ class Post
 
     /**
      * @ORM\Column(name="type", type="integer")
+     * @Assert\NotBlank()
      */
     private $type;
 
@@ -69,6 +74,7 @@ class Post
     {
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->teamspeak = null;
         $this->numberOfAnswers = 0;
         $this->views = 0;
         $this->note = null;

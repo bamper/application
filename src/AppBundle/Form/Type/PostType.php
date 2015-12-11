@@ -10,14 +10,15 @@ class PostType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('note','text');
-        $builder->add('gameType', 'choice', array(
+        $builder->add('type', 'choice', array(
             'choices' => array(
                 '1' => 'Matchmaking',
-                '2' => 'ESEA PUG',
-                '3' => 'FACEIT'
+                '2' => 'ESEA',
+                '3' => 'FACEIT',
+                '4' => 'any'
             )
         ));
+        $builder->add('note','textarea');
     }
 
     public function configureOptions(OptionsResolver $resolver)

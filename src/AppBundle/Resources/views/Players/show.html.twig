@@ -1,11 +1,24 @@
 {% extends '::layout.html.twig' %}
 
-{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
-
 {% block content %}
 
-{{ form(form) }}
 
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': 'players_Form'}}) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_widget(form.minimumRank, {'attr': {'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.maximumRank, {'attr': {'class': 'form-control'} }) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.type, {'attr': {'class': 'form-control'} }) }}
+    </div>
+
+    {#
     {% if players is defined %}
         <div class="row">
         {% for player in players %}
@@ -16,9 +29,9 @@
                     <span><a class="text-muted" href="{{ player.profile.profileData.response.players['0'].profileurl }}">{{ player.profile.profileData.response.players['0'].personaname }}</a></span></td>
                     {{ player.profile.rank }}
                 </div>
-               {# <td><a href="{{ path('players_invite', { 'username': player.username }) }}">Invite</a></td>#}
+               &#123;&#35; <td><a href="{{ path('players_invite', { 'username': player.username }) }}">Invite</a></td>&#35;&#125;
         {% endfor %}
         </div>
     {% endif %}
-
+#}
 {% endblock %}

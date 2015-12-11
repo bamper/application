@@ -237,18 +237,28 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             if (0 === strpos($pathinfo, '/post')) {
-                // players_create_post
+                // dashboard_create_post
                 if ($pathinfo === '/post/create') {
-                    return array (  '_controller' => 'AppBundle\\Controller\\PostController::createAction',  '_route' => 'players_create_post',);
+                    return array (  '_controller' => 'AppBundle\\Controller\\PostController::createAction',  '_route' => 'dashboard_create_post',);
                 }
 
-                // players_post
+                // dashboard_post
                 if (preg_match('#^/post/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'players_post')), array (  '_controller' => 'AppBundle\\Controller\\PostController::showAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dashboard_post')), array (  '_controller' => 'AppBundle\\Controller\\PostController::showAction',));
+                }
+
+                // dashboard_post_edit
+                if ($pathinfo === '/post') {
+                    return array (  '_controller' => 'AppBundle\\Controller\\PostController::editAction',  '_route' => 'dashboard_post_edit',);
                 }
 
             }
 
+        }
+
+        // dashboard
+        if ($pathinfo === '/dashboard') {
+            return array (  '_controller' => 'AppBundle\\Controller\\DashboardController::indexAction',  '_route' => 'dashboard',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

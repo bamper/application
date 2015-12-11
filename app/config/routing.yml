@@ -51,10 +51,18 @@ players_show:
     path:     /players/
     defaults: { _controller: AppBundle:Players:show }
 
-players_create_post:
+dashboard_create_post:
     path:     /post/create
     defaults: { _controller: AppBundle:Post:create }
 
-players_post:
+dashboard_post:
     path:     /post/{id}
     defaults: { _controller: AppBundle:Post:show }
+
+dashboard_post_edit:
+    path:     /post
+    defaults: { _controller: AppBundle:Post:edit }
+
+dashboard:
+    path:    /dashboard
+    defaults: { _controller: AppBundle:Dashboard:index }

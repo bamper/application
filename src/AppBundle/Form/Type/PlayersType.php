@@ -54,6 +54,14 @@ class PlayersType extends AbstractType
                 '18' => 'The Global Elite'
             )
         ));
+        $builder->add('type', 'choice', array(
+            'choices' => array(
+                '1' => 'Matchmaking',
+                '2' => 'ESEA',
+                '3' => 'FACEIT',
+                '4' => 'any'
+            )
+        ));
         $builder->add('Szukaj', 'submit');
     }
 

@@ -6,6 +6,7 @@ use AppBundle\Form\Model\Players;
 use AppBundle\Form\Type\PlayersType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class PlayersController extends Controller
 {
@@ -27,11 +28,10 @@ class PlayersController extends Controller
             $data = $form->getData();
             $minimumRank = $data->getMinimumRank();
             $maximumRank = $data->getMaximumRank();
-            $gameType = $data->getGameType();
-
+            $type = $data->getGameType();
             $playersToView = array();
 
-           $qb = $em->createQueryBuilder();
+            $qb = $em->createQueryBuilder();
             $qb->select('u')
                 ->from('AppBundle:User', 'u')
                 // spell out your join condition
@@ -42,8 +42,9 @@ class PlayersController extends Controller
                     ':min',
                     ':max'
                 ))
+                ->andWhere('type == :type')
                 ->andWhere('u.id != :id')
-                ->setParameters(array('min' => $minimumRank, 'max' => $maximumRank, 'id' => $user->getId()));
+                ->setParameters(array('min' => $minimumRank, 'max' => $maximumRank, 'type' => $type,'id' => $user->getId()));
 
             $query = $qb->getQuery();
             $players = $query->getResult();
@@ -53,17 +54,16 @@ class PlayersController extends Controller
                 $playersToView [] = $player;
             }
 
-            if (!empty($playersToView)) {
-                return $this->render(
-                    'AppBundle:Players:show.html.twig', array(
-                        'players' => $playersToView,
-                        'form' => $form->createView()
-                    )
-                );
-            } else {
-                return $this->render('AppBundle:Players:show.html.twig', array(
-                    'form' => $form->createView()
-                ));
+            if ($request->isXmlHttpRequest()) {
+                if (!empty($playersToView)) {
+                    $array = array('status' => 200, 'players' => $playersToView);
+                } else {
+                    $array = array('status' => 200, 'messages' => '0');
+                }
+
+                $response = new JsonResponse($array);
+
+                return $response;
             }
         }
 
