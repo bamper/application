@@ -34,7 +34,7 @@ class PlayersController extends Controller
             $playersToView = array();
 
             //TODO create query
-            /*$qb = $em->createQueryBuilder();
+            $qb = $em->createQueryBuilder();
             $qb->select('user')
                 ->from('AppBundle:User', 'user')
                 ->join('user.profile', 'profile')
@@ -48,9 +48,9 @@ class PlayersController extends Controller
                 ->andWhere('user.id != :id')
                 ->setParameters(array('min' => $minimumRank, 'max' => $maximumRank, 'type' => $type,'id' => $user->getId()));
             $query = $qb->getQuery();
-            $players = $query->getResult();*/
+            $players = $query->getResult();
 
-            $players = $this->getDoctrine()->getRepository('AppBundle:Player')->findPlayers($minimumRank, $maximumRank, $type, $id);
+            /*$players = $this->getDoctrine()->getRepository('AppBundle:Player')->findPlayers($minimumRank, $maximumRank, $type, $id);*/
 
             foreach ($players as $player) {
                 $username = $player->getUsername();
