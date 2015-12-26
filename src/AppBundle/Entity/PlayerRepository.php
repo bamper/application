@@ -12,4 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlayerRepository extends EntityRepository
 {
+    public function findPlayers($minimumRank, $maximumRank, $type, $id)
+    {
+        $qb = $em->createQueryBuilder();
+        $qb->select('user')
+            ->from('AppBundle:User', 'user')
+            ->join('user.profile', 'profile')
+            ->join('user.post', 'post')
+            ->where($qb->expr()->between(
+                'profile.rank',
+                ':min',
+                ':max'
+            ))
+            ->andWhere('post.type = :type')
+            ->andWhere('user.id != :id')
+            ->setParameters(array('min' => $minimumRank, 'max' => $maximumRank, 'type' => $type,'id' => $id));
+
+        $query = $qb->getQuery();
+        return $query->getResult();
+    }
 }

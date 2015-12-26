@@ -16,9 +16,11 @@ services:
         arguments:
             - @router
             - @session
+        calls:
+            - [ setContainer, [@service_container ] ]
 
     app.steam:
-        class:  AppBundle\Helper\steamHelper
+        class:  AppBundle\Helper\SteamHelper
         arguments:
             - [%id]
         calls:

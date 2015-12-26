@@ -62,7 +62,7 @@ class PlayersType extends AbstractType
                 '4' => 'any'
             )
         ));
-        $builder->add('Szukaj', 'submit');
+        $builder->add('Search', 'submit');
     }
 
     public function configureOptions(OptionsResolver $resolver)

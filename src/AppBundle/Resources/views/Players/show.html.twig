@@ -2,8 +2,7 @@
 
 {% block content %}
 
-
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': 'players_Form'}}) }}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'id': 'searchForm'}}) }}
     {{ form_errors(form) }}
 
     <div class="form-group">
@@ -18,20 +17,15 @@
         {{ form_widget(form.type, {'attr': {'class': 'form-control'} }) }}
     </div>
 
-    {#
-    {% if players is defined %}
-        <div class="row">
-        {% for player in players %}
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumbnail">
-                    <img class="img-circle pull-left" src="{{ player.profile.profileData.response.players['0'].avatarmedium }}" alt=""/>
-                    {{ player.username }}<br>
+    <div class="form-group">
+        {{ form_row(form.Search, {'attr': {'class': 'btn btn-default'}}) }}
+    </div>
 
-                    <span><a class="text-muted" href="{{ player.profile.profileData.response.players['0'].profileurl }}">{{ player.profile.profileData.response.players['0'].personaname }}</a></span></td>
-                    {{ player.profile.rank }}
-                </div>
-               &#123;&#35; <td><a href="{{ path('players_invite', { 'username': player.username }) }}">Invite</a></td>&#35;&#125;
-        {% endfor %}
-        </div>
-    {% endif %}
-#}
+    {{ form_rest(form) }}
+
+    <hr>
+
+    <div id="players">
+        <!-- here comes ajax request response data !-->
+    </div>
 {% endblock %}

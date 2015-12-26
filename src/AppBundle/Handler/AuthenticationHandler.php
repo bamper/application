@@ -33,12 +33,23 @@ class AuthenticationHandler extends ContainerAware implements AuthenticationSucc
      * @param TokenInterface $token
      * @return JsonResponse|RedirectResponse
      */
-    public function onAuthenticationSuccess( Request $request, TokenInterface $token )
+    public function onAuthenticationSuccess( Request $request, TokenInterface $token)
     {
-        /**
-         * Sets last User login time
+        /*
+         * Authenticated user
          */
-        $token->getUser()->setLastLogin(Carbon::now());
+        $user = $token->getUser();
+
+        /**
+         * Set last user login time
+         */
+        $user->setLastLogin(Carbon::now());
+
+        /*
+         * Update Steam data
+         */
+        $this->container->get('app.steam')->update($user);
+
         if ( $request->isXmlHttpRequest() ) {
             $array = array( 'success' => true );
             $response = new JsonResponse(  $array  );
@@ -56,7 +67,7 @@ class AuthenticationHandler extends ContainerAware implements AuthenticationSucc
 
                 $url = $this->router->generate( 'pages_index' );
 
-            } // end if
+            }
 
             return new RedirectResponse( $url );
 

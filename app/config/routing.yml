@@ -6,7 +6,6 @@ pages_index:
     path:     /
     defaults:  { _controller: AppBundle:Page:index }
 
-
 user_registration_register:
     path:     /register/
     defaults: { _controller: AppBundle:Registration:register }
@@ -47,9 +46,9 @@ user_profile_first_login:
     path:     /profile/first-login
     defaults: { _controller: AppBundle:FirstLogin:firstLogin }
 
-players_show:
-    path:     /players/
-    defaults: { _controller: AppBundle:Players:show }
+players_search:
+    path:     /players
+    defaults: { _controller: AppBundle:Players:search }
 
 dashboard_create_post:
     path:     /post/create

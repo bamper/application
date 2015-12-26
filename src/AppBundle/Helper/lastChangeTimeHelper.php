@@ -43,13 +43,6 @@ class lastChangeTimeHelper
             $currentCookieValue = $cookies->get('lastChangeTime');
         }
 
-        //DEBUG
-        /*
-        var_dump($currentCookieValue);
-        var_dump($currentTime);
-        var_dump($currentTime-$currentCookieValue);
-        */
-
         if ($currentTime-$currentCookieValue > $maxTime)
         {
             $currentCookieValue = $currentTime;

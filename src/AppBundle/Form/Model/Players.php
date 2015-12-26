@@ -7,7 +7,7 @@ class Players
 
     protected $minimumRank;
     protected $maximumRank;
-    protected $gameType;
+    protected $type;
 
     public function getMinimumRank()
     {
@@ -29,14 +29,14 @@ class Players
         $this->maximumRank = $maximumRank;
     }
 
-    public function getGameType()
+    public function getType()
     {
-        return $this->gameType;
+        return $this->type;
     }
 
-    public function setGameType($gameType)
+    public function setType($type)
     {
-        $this->gameType = $gameType;
+        $this->type = $type;
     }
 
 }

@@ -116,11 +116,6 @@ class User implements AdvancedUserInterface, \Serializable
     protected $profile;
 
     /**
-     * @ORM\OneToOne(targetEntity="Player", orphanRemoval=true, inversedBy="user")
-     */
-    protected $player;
-
-    /**
      * @ORM\OneToOne(targetEntity="Post", orphanRemoval=true, inversedBy="user")
      */
     protected $post;
@@ -518,52 +513,6 @@ class User implements AdvancedUserInterface, \Serializable
     public function getFirstLogin()
     {
         return $this->firstLogin;
-    }
-
-    /**
-     * Set player
-     *
-     * @param \AppBundle\Entity\Player $player
-     * @return User
-     */
-    public function setPlayer(\AppBundle\Entity\Player $player = null)
-    {
-        $this->player = $player;
-
-        return $this;
-    }
-
-    /**
-     * Get player
-     *
-     * @return \AppBundle\Entity\Player 
-     */
-    public function getPlayer()
-    {
-        return $this->player;
-    }
-
-    /**
-     * Set announcement
-     *
-     * @param \AppBundle\Entity\Announcement $announcement
-     * @return User
-     */
-    public function setAnnouncement(\AppBundle\Entity\Announcement $announcement = null)
-    {
-        $this->announcement = $announcement;
-
-        return $this;
-    }
-
-    /**
-     * Get announcement
-     *
-     * @return \AppBundle\Entity\Announcement 
-     */
-    public function getAnnouncement()
-    {
-        return $this->announcement;
     }
 
     /**

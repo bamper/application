@@ -43,21 +43,51 @@ class Profile
     private $surname;
 
     /**
-        * @var string
-        *
-        * @ORM\Column(name="rank", type="integer", nullable=true)
-        */
+     * @var string
+     *
+     * @ORM\Column(name="rank", type="integer", nullable=true)
+     */
     private $rank;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $steam_personaname;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $steam_lastlogoff;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $steam_profileurl;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $steam_avatar;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $steam_avatarmediun;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $steam_avatarfull;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $steam_timecreated;
 
     /**
     *@ORM\OneToOne(targetEntity="User", mappedBy="profile")
     */
     private $user;
-
-    /**
-     * @ORM\Column(type="json_array", nullable=true)
-     */
-    private $profileData;
 
     /**
      * Get id
@@ -167,22 +197,6 @@ class Profile
      * @param array $profileData
      * @return Profile
      */
-    public function setProfileData($profileData)
-    {
-        $this->profileData = $profileData;
-
-        return $this;
-    }
-
-    /**
-     * Get profileData
-     *
-     * @return array 
-     */
-    public function getProfileData()
-    {
-        return $this->profileData;
-    }
 
     /**
      * Set user
@@ -205,5 +219,166 @@ class Profile
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set steam_personaname
+     *
+     * @param string $steamPersonaname
+     * @return Profile
+     */
+    public function setSteamPersonaname($steamPersonaname)
+    {
+        $this->steam_personaname = $steamPersonaname;
+    
+        return $this;
+    }
+
+    /**
+     * Get steam_personaname
+     *
+     * @return string 
+     */
+    public function getSteamPersonaname()
+    {
+        return $this->steam_personaname;
+    }
+
+    /**
+     * Set steam_lastlogoff
+     *
+     * @param \DateTime $steamLastlogoff
+     * @return Profile
+     */
+    public function setSteamLastlogoff($steamLastlogoff)
+    {
+        $this->steam_lastlogoff = $steamLastlogoff;
+    
+        return $this;
+    }
+
+    /**
+     * Get steam_lastlogoff
+     *
+     * @return \DateTime 
+     */
+    public function getSteamLastlogoff()
+    {
+        return $this->steam_lastlogoff;
+    }
+
+    /**
+     * Set steam_profileurl
+     *
+     * @param string $steamProfileurl
+     * @return Profile
+     */
+    public function setSteamProfileurl($steamProfileurl)
+    {
+        $this->steam_profileurl = $steamProfileurl;
+    
+        return $this;
+    }
+
+    /**
+     * Get steam_profileurl
+     *
+     * @return string 
+     */
+    public function getSteamProfileurl()
+    {
+        return $this->steam_profileurl;
+    }
+
+    /**
+     * Set steam_avatar
+     *
+     * @param string $steamAvatar
+     * @return Profile
+     */
+    public function setSteamAvatar($steamAvatar)
+    {
+        $this->steam_avatar = $steamAvatar;
+    
+        return $this;
+    }
+
+    /**
+     * Get steam_avatar
+     *
+     * @return string 
+     */
+    public function getSteamAvatar()
+    {
+        return $this->steam_avatar;
+    }
+    
+    /**
+     * Set steam_timecreated
+     *
+     * @param \DateTime $steamTimecreated
+     * @return Profile
+     */
+    public function setSteamTimecreated($steamTimecreated)
+    {
+        $this->steam_timecreated = $steamTimecreated;
+    
+        return $this;
+    }
+
+    /**
+     * Get steam_timecreated
+     *
+     * @return \DateTime 
+     */
+    public function getSteamTimecreated()
+    {
+        return $this->steam_timecreated;
+    }
+
+    /**
+     * Set steam_avatarmediun
+     *
+     * @param string $steamAvatarmediun
+     * @return Profile
+     */
+    public function setSteamAvatarmediun($steamAvatarmediun)
+    {
+        $this->steam_avatarmediun = $steamAvatarmediun;
+    
+        return $this;
+    }
+
+    /**
+     * Get steam_avatarmediun
+     *
+     * @return string 
+     */
+    public function getSteamAvatarmediun()
+    {
+        return $this->steam_avatarmediun;
+    }
+
+    /**
+     * Set steam_avatarfull
+     *
+     * @param string $steamAvatarfull
+     * @return Profile
+     */
+    public function setSteamAvatarfull($steamAvatarfull)
+    {
+        $this->steam_avatarfull = $steamAvatarfull;
+    
+        return $this;
+    }
+
+    /**
+     * Get steam_avatarfull
+     *
+     * @return string 
+     */
+    public function getSteamAvatarfull()
+    {
+        return $this->steam_avatarfull;
     }
 }

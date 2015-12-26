@@ -22,20 +22,20 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e5d6a786eb81eaeeafca1adae448a5599086275efb2532d7a31b9614a10b17dd = $this->env->getExtension("native_profiler");
-        $__internal_e5d6a786eb81eaeeafca1adae448a5599086275efb2532d7a31b9614a10b17dd->enter($__internal_e5d6a786eb81eaeeafca1adae448a5599086275efb2532d7a31b9614a10b17dd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::layout.html.twig"));
+        $__internal_97ad75866f7b2a18c8954b16ff5156fe1838aefdff845c3dc6b4c8e689cacdf3 = $this->env->getExtension("native_profiler");
+        $__internal_97ad75866f7b2a18c8954b16ff5156fe1838aefdff845c3dc6b4c8e689cacdf3->enter($__internal_97ad75866f7b2a18c8954b16ff5156fe1838aefdff845c3dc6b4c8e689cacdf3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::layout.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_e5d6a786eb81eaeeafca1adae448a5599086275efb2532d7a31b9614a10b17dd->leave($__internal_e5d6a786eb81eaeeafca1adae448a5599086275efb2532d7a31b9614a10b17dd_prof);
+        $__internal_97ad75866f7b2a18c8954b16ff5156fe1838aefdff845c3dc6b4c8e689cacdf3->leave($__internal_97ad75866f7b2a18c8954b16ff5156fe1838aefdff845c3dc6b4c8e689cacdf3_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_897c7bad5f596ce04e34aeb18c626ad52a7d4ddf5d25691529de10dd4285f290 = $this->env->getExtension("native_profiler");
-        $__internal_897c7bad5f596ce04e34aeb18c626ad52a7d4ddf5d25691529de10dd4285f290->enter($__internal_897c7bad5f596ce04e34aeb18c626ad52a7d4ddf5d25691529de10dd4285f290_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_13e9b59a08dc4db9138e7c37a16136ad279408afaaf5a9f3fe0fae5661163ea7 = $this->env->getExtension("native_profiler");
+        $__internal_13e9b59a08dc4db9138e7c37a16136ad279408afaaf5a9f3fe0fae5661163ea7->enter($__internal_13e9b59a08dc4db9138e7c37a16136ad279408afaaf5a9f3fe0fae5661163ea7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <nav class=\"navbar navbar-default navbar-inverse\">
@@ -69,10 +69,10 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
                                     src=\"";
             // line 26
             if ($this->getAttribute((isset($context["app"]) ? $context["app"] : null), "user", array(), "any", true, true)) {
-                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "profile", array()), "profileData", array()), "response", array()), "players", array()), 0, array(), "array"), "avatar", array()), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "profile", array()), "SteamAvatar", array()), "html", null, true);
                 echo " ";
             }
-            echo "\" alt=\"Avatar\" class=\"navbar-img img-circle\"></a>
+            echo "\" alt=\"Avatar\" class=\"navbar-img img-circle img-responsive\"></a>
                         <ul class=\"dropdown-menu\">
                             <li><a href=\"";
             // line 28
@@ -176,19 +176,19 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
     ";
         }
         
-        $__internal_897c7bad5f596ce04e34aeb18c626ad52a7d4ddf5d25691529de10dd4285f290->leave($__internal_897c7bad5f596ce04e34aeb18c626ad52a7d4ddf5d25691529de10dd4285f290_prof);
+        $__internal_13e9b59a08dc4db9138e7c37a16136ad279408afaaf5a9f3fe0fae5661163ea7->leave($__internal_13e9b59a08dc4db9138e7c37a16136ad279408afaaf5a9f3fe0fae5661163ea7_prof);
 
     }
 
     // line 41
     public function block_content($context, array $blocks = array())
     {
-        $__internal_069be02f1a3a5c00cfa3ac2f26b5d3074ab0fbb0e7ebbde2cee10a32cfe507a4 = $this->env->getExtension("native_profiler");
-        $__internal_069be02f1a3a5c00cfa3ac2f26b5d3074ab0fbb0e7ebbde2cee10a32cfe507a4->enter($__internal_069be02f1a3a5c00cfa3ac2f26b5d3074ab0fbb0e7ebbde2cee10a32cfe507a4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_4429c04c25a57bfc0ce99c31f8aa7b1f36df7ab9b3bd1950cd0860e224e26b09 = $this->env->getExtension("native_profiler");
+        $__internal_4429c04c25a57bfc0ce99c31f8aa7b1f36df7ab9b3bd1950cd0860e224e26b09->enter($__internal_4429c04c25a57bfc0ce99c31f8aa7b1f36df7ab9b3bd1950cd0860e224e26b09_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         echo " ";
         
-        $__internal_069be02f1a3a5c00cfa3ac2f26b5d3074ab0fbb0e7ebbde2cee10a32cfe507a4->leave($__internal_069be02f1a3a5c00cfa3ac2f26b5d3074ab0fbb0e7ebbde2cee10a32cfe507a4_prof);
+        $__internal_4429c04c25a57bfc0ce99c31f8aa7b1f36df7ab9b3bd1950cd0860e224e26b09->leave($__internal_4429c04c25a57bfc0ce99c31f8aa7b1f36df7ab9b3bd1950cd0860e224e26b09_prof);
 
     }
 
@@ -232,7 +232,7 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 /*                     {% else %}*/
 /*                     <li class="dropdown">*/
 /*                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img*/
-/*                                     src="{% if app.user is defined %}{{app.user.profile.profileData.response.players[0].avatar }} {% endif %}" alt="Avatar" class="navbar-img img-circle"></a>*/
+/*                                     src="{% if app.user is defined %}{{app.user.profile.SteamAvatar }} {% endif %}" alt="Avatar" class="navbar-img img-circle img-responsive"></a>*/
 /*                         <ul class="dropdown-menu">*/
 /*                             <li><a href="{{ path('user_profile_show') }}">Profil</a></li>*/
 /*                             <li><a href="#">Ustawienia</a></li>*/

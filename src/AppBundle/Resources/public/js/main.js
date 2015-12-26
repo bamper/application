@@ -95,7 +95,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $("#playersForm").submit(function(e) {
+    $("#searchForm").submit(function(e) {
         $.ajax({
             url : $(this).attr('action'),
             type: $(this).attr('method'),
@@ -103,13 +103,16 @@ $(document).ready(function() {
             beforeSend: function()
             {
                 console.log("Sending request.");
-                $("#post_Create").html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');
+                $("#players_Search").html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');
             },
             success: function(data)
             {
                 $(".help-block").remove();
 
-                $("#players_Form").html('Search');
+                console.log(data.status);
+                console.log(data.message);
+                console.log(data.players);
+                $("#players_Search").html('Search');
                 if(data.status == 400)
                 {
                     $.each( data.errors, function( key, value ) {
@@ -117,7 +120,12 @@ $(document).ready(function() {
                     });
                 } else if(data.status == 200)
                 {
-                    $("#playersForm").before('<span class="help-block"><span class="glyphicon glyphicon-ok-circle text-success"></span> ' + data.message + '</span>').remove();
+                    $.each(data.players, function() {
+                        $.each(this, function(name, value) {
+                            /// do stuff
+                            console.log(name + '=' + value);
+                        });
+                    });
                 }
             }
         });

@@ -66,7 +66,7 @@ class Post
     private $type;
 
     /**
-     *@ORM\OneToOne(targetEntity="User", mappedBy="post")
+     * @ORM\OneToOne(targetEntity="User", mappedBy="post")
      */
     private $user;
 
@@ -80,6 +80,8 @@ class Post
         $this->note = null;
     }
 
+   
+
     /**
      * Get id
      *
@@ -91,38 +93,15 @@ class Post
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Announcement
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
      * Set views
      *
      * @param integer $views
-     * @return Announcement
+     * @return Post
      */
     public function setViews($views)
     {
         $this->views = $views;
-
+    
         return $this;
     }
 
@@ -137,38 +116,15 @@ class Post
     }
 
     /**
-     * Set answers
-     *
-     * @param integer $answers
-     * @return Announcement
-     */
-    public function setAnswers($answers)
-    {
-        $this->answers = $answers;
-
-        return $this;
-    }
-
-    /**
-     * Get answers
-     *
-     * @return integer 
-     */
-    public function getAnswers()
-    {
-        return $this->answers;
-    }
-
-    /**
      * Set numberOfAnswers
      *
      * @param integer $numberOfAnswers
-     * @return Announcement
+     * @return Post
      */
     public function setNumberOfAnswers($numberOfAnswers)
     {
         $this->numberOfAnswers = $numberOfAnswers;
-
+    
         return $this;
     }
 
@@ -186,12 +142,12 @@ class Post
      * Set note
      *
      * @param string $note
-     * @return Announcement
+     * @return Post
      */
     public function setNote($note)
     {
         $this->note = $note;
-
+    
         return $this;
     }
 
@@ -206,15 +162,38 @@ class Post
     }
 
     /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Post
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Announcement
+     * @return Post
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
-
+    
         return $this;
     }
 
@@ -228,31 +207,6 @@ class Post
         return $this->updatedAt;
     }
 
-
-
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     * @return Announcement
-     */
-    public function setUser(\AppBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
     /**
      * Set type
      *
@@ -262,7 +216,7 @@ class Post
     public function setType($type)
     {
         $this->type = $type;
-
+    
         return $this;
     }
 
@@ -274,5 +228,28 @@ class Post
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     * @return Post
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

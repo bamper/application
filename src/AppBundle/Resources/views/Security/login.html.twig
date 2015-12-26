@@ -13,6 +13,7 @@
     <button type="submit">Zaloguj się</button>
 
     <br>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     <p><a href="{{ path('user_resetting_request') }}">Zapomniałeś hasła?</a></p>
     <p><a href="{{ path('user_registration_register') }}">Dołącz</a></p>
 </form>

@@ -13,15 +13,6 @@ use AppBundle\Entity\User;
  */
 class ProfileRepository extends EntityRepository
 {
-    public function findAllPlayers()
-    {
-        $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->select('u')
-            ->from('User', 'u')
-            ->where(
-                'u.username = nix'
-            );
-        return $qb->getQuery()->getResult();
-    }
+
 
 }

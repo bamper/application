@@ -227,13 +227,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            // players_show
-            if (rtrim($pathinfo, '/') === '/players') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'players_show');
-                }
-
-                return array (  '_controller' => 'AppBundle\\Controller\\PlayersController::showAction',  '_route' => 'players_show',);
+            // players_search
+            if ($pathinfo === '/players') {
+                return array (  '_controller' => 'AppBundle\\Controller\\PlayersController::searchAction',  '_route' => 'players_search',);
             }
 
             if (0 === strpos($pathinfo, '/post')) {

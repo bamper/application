@@ -371,11 +371,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return \AppBundle\Helper\steamHelper A AppBundle\Helper\steamHelper instance.
+     * @return \AppBundle\Helper\SteamHelper A AppBundle\Helper\SteamHelper instance.
      */
     protected function getApp_SteamService()
     {
-        $this->services['app.steam'] = $instance = new \AppBundle\Helper\steamHelper(array(0 => '%id'));
+        $this->services['app.steam'] = $instance = new \AppBundle\Helper\SteamHelper(array(0 => '%id'));
 
         $instance->setContainer($this);
 
@@ -2146,13 +2146,14 @@ class appDevDebugProjectContainer extends Container
         $m = new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate');
 
         $n = new \AppBundle\Handler\AuthenticationHandler($e, $f);
+        $n->setContainer($this);
 
         $o = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $m, $j, 'secured_area', new \Symfony\Component\Security\Http\Authentication\CustomAuthenticationSuccessHandler($n, array('login_path' => '/login', 'default_target_path' => '/players', 'always_use_default_target_path' => false, 'target_path_parameter' => '_target_path', 'use_referer' => false), 'secured_area'), new \Symfony\Component\Security\Http\Authentication\CustomAuthenticationFailureHandler($n, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path')), array('check_path' => '/login_check', 'require_previous_session' => false, 'use_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, $this->get('security.csrf.token_manager'));
         $o->setRememberMeServices($k);
 
         $p = new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($h, $j, '/login', false);
 
-        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($i, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'secured_area', $a, $d), 2 => $l, 3 => $o, 4 => new \Symfony\Component\Security\Http\Firewall\BasicAuthenticationListener($b, $g, 'secured_area', $p, $a), 5 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $k, $g, $a, $d, true, $m), 6 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '566880e977df54.12303578', $a, $g), 7 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $i, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $j, 'secured_area', $p, NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($i, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'secured_area', $a, $d), 2 => $l, 3 => $o, 4 => new \Symfony\Component\Security\Http\Firewall\BasicAuthenticationListener($b, $g, 'secured_area', $p, $a), 5 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $k, $g, $a, $d, true, $m), 6 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '567721b8ab9b76.68077814', $a, $g), 7 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $i, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $j, 'secured_area', $p, NULL, NULL, $a, false));
     }
 
     /**
@@ -3501,7 +3502,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = new \Symfony\Component\Security\Core\User\UserChecker();
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.database'), $a, 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'secured_area'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('566880e977df54.12303578')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.database'), $a, 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'secured_area'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('567721b8ab9b76.68077814')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
