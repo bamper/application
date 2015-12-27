@@ -108,11 +108,15 @@ $(document).ready(function() {
             success: function(data)
             {
                 $(".help-block").remove();
-
-                console.log(data.status);
-                console.log(data.message);
-                console.log(data.players);
                 $("#players_Search").html('Search');
+                $.each( data.players, function( key, player ) {
+                    $.each( player, function( key, value ) {
+                        //console.log(key + '=' + value);
+
+
+                    });
+                });
+
                 if(data.status == 400)
                 {
                     $.each( data.errors, function( key, value ) {
@@ -120,12 +124,14 @@ $(document).ready(function() {
                     });
                 } else if(data.status == 200)
                 {
-                    $.each(data.players, function() {
+
+
+                    /*$.each(data.players, function() {
                         $.each(this, function(name, value) {
                             /// do stuff
                             console.log(name + '=' + value);
                         });
-                    });
+                    });*/
                 }
             }
         });

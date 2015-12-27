@@ -62,26 +62,26 @@ class PlayersController extends Controller
                 $note = $player->getPost()->getNote();
 
                 $playersToView [] = array(
-                    'username' => $username,
-                    'profile_url' => $profileurl,
-                    'rank' => $rank,
-                    'avatar' => $avatar,
-                    'views' => $views,
-                    'numberOfAnswers' => $numberOfAnswers,
-                    'note' => $note
+                    'username' => stripslashes($username),
+                    'profile_url' => stripslashes($profileurl),
+                    'rank' => stripslashes($rank),
+                    'avatar' => stripslashes($avatar),
+                    'views' => stripslashes($views),
+                    'numberOfAnswers' => stripslashes($numberOfAnswers),
+                    'note' => stripslashes($note)
                 );
+
+
             }
 
-            $playersToView = json_encode($playersToView);
-
-            if ($request->isXmlHttpRequest()) {
+          if  ($request->isXmlHttpRequest()) {
                 if (!empty($playersToView)) {
                     $array = array('status' => 200, 'message' => 'Getting players', 'players' => $playersToView);
                 } else {
                     $array = array('status' => 404, 'message' => 'No players to show');
                 }
-
-                $response = new JsonResponse($array);
+              $response = new Response(json_encode($array));
+              $response->headers->set('Content-Type', 'application/json');
                 return $response;
             }
         }
