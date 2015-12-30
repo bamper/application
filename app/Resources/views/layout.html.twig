@@ -25,10 +25,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img
                                     src="{% if app.user is defined %}{{app.user.profile.SteamAvatar }} {% endif %}" alt="Avatar" class="navbar-img img-circle img-responsive"></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ path('user_profile_show') }}">Profil</a></li>
-                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="{{ path('dashboard') }}"><span class="glyphicon glyphicon-tasks"></span> Panel</a></li>
+                            <li><a href="{{ path('user_profile_show') }}"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Ustawienia</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ path('logout') }}">Wyloguj</a></li>
+                            <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Wyloguj</a></li>
                         </ul>
                     </li>
                     {% endif %}

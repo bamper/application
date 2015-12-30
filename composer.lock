@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52caef22beb14d4bca5ee856d944682d",
-    "content-hash": "65617c6b4d5fc5d222768ddcdd3368db",
+    "hash": "397a2a926a0cf5690305cb9b9360774b",
+    "content-hash": "88fff3270849afbb9ff3cf1b089b5394",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1027,6 +1027,63 @@
                 "sql"
             ],
             "time": "2014-01-12 16:20:24"
+        },
+        {
+            "name": "jenssegers/date",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/date.git",
+                "reference": "0fac566c8bc34a095b5bf418db888fdf11632a96"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/date/zipball/0fac566c8bc34a095b5bf418db888fdf11632a96",
+                "reference": "0fac566c8bc34a095b5bf418db888fdf11632a96",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^1.0",
+                "php": ">=5.3.3",
+                "symfony/translation": "^2.0|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0",
+                "satooshi/php-coveralls": "^0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Date\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "A date library to help you work with dates in different languages",
+            "homepage": "https://github.com/jenssegers/date",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "i18n",
+                "laravel",
+                "time",
+                "translation"
+            ],
+            "time": "2015-12-11 22:19:37"
         },
         {
             "name": "kriswallsmith/assetic",

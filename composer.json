@@ -22,7 +22,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "leaseweb/api-caller-bundle": "*",
         "hautelook/alice-bundle": "^0.2.0",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "jenssegers/date": "^3.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

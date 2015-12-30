@@ -40,7 +40,9 @@ class SteamHelper extends ContainerAware
         $user->getProfile()->setSteamAvatarmediun($data->avatarmedium);
         $user->getProfile()->setSteamAvatarfull($data->avatarfull);
         $user->getProfile()->setSteamProfileurl($data->profileurl);
-        $user->getProfile()->setSteamTimecreated(Carbon::createFromTimestamp($data->timecreated));
+        if(isset($data->timecreated)) {
+            $user->getProfile()->setSteamTimecreated(Carbon::createFromTimestamp($data->timecreated));
+        }
         $user->getProfile()->setSteamLastlogoff(Carbon::createFromTimestamp($data->lastlogoff));
 
         /*

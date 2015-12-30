@@ -72,7 +72,7 @@ class Profile
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $steam_avatarmediun;
+    private $steam_avatarmedium;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -342,9 +342,9 @@ class Profile
      * @param string $steamAvatarmediun
      * @return Profile
      */
-    public function setSteamAvatarmediun($steamAvatarmediun)
+    public function setSteamAvatarmediun($steamAvatarmedium)
     {
-        $this->steam_avatarmediun = $steamAvatarmediun;
+        $this->steam_avatarmedium = $steamAvatarmedium;
     
         return $this;
     }
@@ -354,9 +354,9 @@ class Profile
      *
      * @return string 
      */
-    public function getSteamAvatarmediun()
+    public function getSteamAvatarmedium()
     {
-        return $this->steam_avatarmediun;
+        return $this->steam_avatarmedium;
     }
 
     /**

@@ -41,8 +41,6 @@ class RegistrationController extends Controller
             $em->persist($registration->getUser());
 
             $profile = new Profile();
-            $player = new Player();
-
             /**
              * Send confirmation email message
              */
@@ -50,9 +48,7 @@ class RegistrationController extends Controller
             $mailer->sendConfirmationEmailMessage($registration->getUser());
 
             $em->persist($profile);
-            $em->persist($player);
             $registration->getUser()->setProfile($profile);
-            $registration->getUser()->setPlayer($player);
             $em->flush();
 
             if ($request->isXmlHttpRequest())

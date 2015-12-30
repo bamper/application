@@ -35,3 +35,20 @@
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
 }
+
+
+#players .panel-footer {
+    padding: 0;
+}
+
+#players .btn-group>.btn {
+    border-radius: 0;
+}
+
+#players .panel-title>.small {
+    margin-top: 4px;
+}
+
+#players .row {
+    margin-bottom: 25px;
+}

@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\Model\Players;
 use AppBundle\Form\Type\PlayersType;
+use Carbon\Carbon;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -51,15 +52,19 @@ class PlayersController extends Controller
             $players = $query->getResult();
 
             /*$players = $this->getDoctrine()->getRepository('AppBundle:Player')->findPlayers($minimumRank, $maximumRank, $type, $id);*/
+            Carbon::setLocale('pl');
 
             foreach ($players as $player) {
                 $username = $player->getUsername();
                 $profileurl = $player->getProfile()->getSteamProfileurl();
                 $rank = $player->getProfile()->getRank();
-                $avatar = $player->getProfile()->getSteamAvatar();
+                $avatar = $player->getProfile()->getSteamAvatarmedium();
                 $views = $player->getPost()->getViews();
                 $numberOfAnswers = $player->getPost()->getNumberOfAnswers();
+                $created = $player->getPost()->getCreatedAt();
                 $note = $player->getPost()->getNote();
+
+                $carbon = Carbon::instance($created);
 
                 $playersToView [] = array(
                     'username' => stripslashes($username),
@@ -68,10 +73,9 @@ class PlayersController extends Controller
                     'avatar' => stripslashes($avatar),
                     'views' => stripslashes($views),
                     'numberOfAnswers' => stripslashes($numberOfAnswers),
+                    'createdAt' => $carbon->diffForHumans(),
                     'note' => stripslashes($note)
                 );
-
-
             }
 
           if  ($request->isXmlHttpRequest()) {

@@ -20,6 +20,7 @@ return array(
     'Sensio\\Bundle\\FrameworkExtraBundle\\' => array($vendorDir . '/sensio/framework-extra-bundle'),
     'Nelmio\\Alice\\' => array($vendorDir . '/nelmio/alice/src/Nelmio/Alice'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'Jenssegers\\Date\\' => array($vendorDir . '/jenssegers/date/src'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Hautelook\\AliceBundle\\' => array($vendorDir . '/hautelook/alice-bundle'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),

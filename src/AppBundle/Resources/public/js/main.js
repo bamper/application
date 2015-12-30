@@ -34,7 +34,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $("#registrationForm").submit(function(e) {
+   $("#registrationForm").submit(function(e) {
         $.ajax({
             url : $(this).attr('action'),
             type: $(this).attr('method'),
@@ -102,20 +102,16 @@ $(document).ready(function() {
             data : $(this).serializeArray(),
             beforeSend: function()
             {
-                console.log("Sending request.");
                 $("#players_Search").html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');
             },
             success: function(data)
             {
                 $(".help-block").remove();
                 $("#players_Search").html('Search');
-                $.each( data.players, function( key, player ) {
-                    $.each( player, function( key, value ) {
-                        //console.log(key + '=' + value);
 
-
-                    });
-                });
+                var count = 0;
+                var item_per_row = 4;
+                var HTML = "";
 
                 if(data.status == 400)
                 {
@@ -124,14 +120,46 @@ $(document).ready(function() {
                     });
                 } else if(data.status == 200)
                 {
+                    $.each( data.players, function( key, player ) {
+                        // Start new row
+                        if (count === 0 || count % 3 === 0) {
+                            HTML += '<div class = "row">';
+                        }
+                        HTML += '<div class="col-md-3">';
+                            HTML += '<div class="panel panel-default">';
+                                HTML += '<div class="panel-heading"><h3 class="panel-title"><a href="#">'+ player.username +'</a><span class="small pull-right">'+ player.createdAt +'</span></h3></div>';
+                                HTML += '<div class="panel-body">';
+                                    HTML += '<img src="'+ player.avatar +'" alt="'+ player.username +'" class="img-circle center-block">';
+                                HTML += '</div>';
+                                HTML += '<div class="panel-footer">';
+                                HTML += '<div class="btn-group btn-group-justified"  role="group" aria-label="..."> ';
+                                    HTML += '<a href="#" class="btn btn-primary btn-success" data-toggle="tooltip" data-placement="bottom" title="Wyślij wiadomość" ><span class="glyphicon glyphicon-envelope"></span>&nbsp;</a>';
+                                    HTML += '<a href="#" class="btn btn-primary btn-info" data-toggle="tooltip" data-placement="bottom" title="Pokaż profil"><span class="glyphicon glyphicon-user"></span>&nbsp;</a>';
+                                    HTML += '<a href="#" class="btn btn-primary btn-primary" data-toggle="tooltip" data-placement="bottom" title="Zobacz szczegółowe informacje o poście"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;</a>';
+                                HTML += '</div>';
+                                HTML += '</div>';
+                            HTML += '</div>';
+                        HTML += '</div>';
 
+                        ++count;
 
-                    /*$.each(data.players, function() {
-                        $.each(this, function(name, value) {
-                            /// do stuff
-                            console.log(name + '=' + value);
-                        });
-                    });*/
+                        // End row
+                        if (count % item_per_row === 0) {
+                            HTML += '</div>';
+                        }
+                    });
+
+                    // Close the last row if it exist
+                    if (count > 0) {
+                        HTML += '</div>';
+                    }
+
+                    // Pass generated HTML to view
+                    $('#players').html(HTML);
+                } else if (data.status == 404) {
+                    HTML = "";
+                    HTML += '<div class="alert alert-danger" role="alert">Nie znaleziono graczy</div>';
+                    $('#players').html(HTML);
                 }
             }
         });
