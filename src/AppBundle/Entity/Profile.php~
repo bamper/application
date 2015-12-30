@@ -55,16 +55,155 @@ class Profile
     private $user;
 
     /**
-    * @var string
-    *
-    * @ORM\Column(name="in_queue", type="boolean", nullable=true)
-    */
-    private $inQueue;
-
-    /**
      * @ORM\Column(type="json_array", nullable=true)
      */
     private $profileData;
 
-    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set steamID
+     *
+     * @param string $steamID
+     * @return Profile
+     */
+    public function setSteamID($steamID)
+    {
+        $this->steamID = $steamID;
+
+        return $this;
+    }
+
+    /**
+     * Get steamID
+     *
+     * @return string 
+     */
+    public function getSteamID()
+    {
+        return $this->steamID;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Profile
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return Profile
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Set rank
+     *
+     * @param integer $rank
+     * @return Profile
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return integer 
+     */
+    public function getRank()
+    {
+        return $this->rank;
+    }
+
+    /**
+     * Set profileData
+     *
+     * @param array $profileData
+     * @return Profile
+     */
+    public function setProfileData($profileData)
+    {
+        $this->profileData = $profileData;
+
+        return $this;
+    }
+
+    /**
+     * Get profileData
+     *
+     * @return array 
+     */
+    public function getProfileData()
+    {
+        return $this->profileData;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     * @return Profile
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

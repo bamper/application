@@ -14,6 +14,8 @@ use Doctrine\ORM\Mapping\JoinColumn;
 /**
  * @ORM\Table(name="app_users")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
+ * @UniqueEntity(fields={"email"}, message="Adres email jest już zajęty")
+ * @UniqueEntity(fields={"username"}, message="Nazwa użytkownika jest już zajęta")
  */
 class User implements AdvancedUserInterface, \Serializable
 {
@@ -33,8 +35,8 @@ class User implements AdvancedUserInterface, \Serializable
      *     message = "Nie podałeś nazwy użytkownika"
      * )
      * @Assert\Length(
-     *      min = 3,
-     *      minMessage = "Twoja nazwa użytkownika powinna składać się z minimum {{ limit }} znaków",
+     *     min = 3,
+     *     minMessage = "Twoja nazwa użytkownika powinna składać się z minimum {{ limit }} znaków",
      * )
      */
     protected $username;

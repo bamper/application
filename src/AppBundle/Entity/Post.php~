@@ -19,14 +19,6 @@ class Post
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="createdAt", type="datetime")
-     */
-    private $createdAt;
-
     /**
      * @var integer
      *
@@ -48,6 +40,14 @@ class Post
      */
     private $note;
 
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $createdAt;
+
     /**
      * @var \DateTime
      *
@@ -61,6 +61,11 @@ class Post
     private $type;
 
     /**
+     * @ORM\Column(name="teamspeak", type="integer")
+     */
+    private $teamspeak;
+
+    /**
      *@ORM\OneToOne(targetEntity="User", mappedBy="post")
      */
     private $user;
@@ -69,6 +74,7 @@ class Post
     {
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+        $this->teamspeak = null;
         $this->numberOfAnswers = 0;
         $this->views = 0;
         $this->note = null;

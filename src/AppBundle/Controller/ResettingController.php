@@ -61,7 +61,7 @@ class ResettingController extends Controller
             throw new NotFoundHttpException('Token jest nieprawidłowy');
         }
 
-        $form = $this->createForm(new newPasswordType(), $user);
+        $form = $this->createForm(new NewPasswordType(), $user);
         $form->handleRequest($request);
 
         if ($form->isValid()) {

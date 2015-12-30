@@ -2,7 +2,7 @@
 
 namespace AppBundle\Form\Model;
 
-class Players
+class SearchPost
 {
 
     protected $minimumRank;

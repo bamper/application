@@ -65,3 +65,4 @@ dashboard_post_edit:
 dashboard:
     path:    /dashboard
     defaults: { _controller: AppBundle:Dashboard:index }
+
