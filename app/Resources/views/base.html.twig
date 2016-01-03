@@ -15,7 +15,7 @@
 <body>
 {% block body %}{% endblock %}
 {% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{{ asset('bundles/app/js/jquery-1.11.3.min.js') }}"></script>
     <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bundles/app/js/main.js') }}"></script>
 {% endblock %}

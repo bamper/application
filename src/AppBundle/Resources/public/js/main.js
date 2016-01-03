@@ -34,7 +34,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-   $("#registrationForm").submit(function(e) {
+    $("#registrationForm").submit(function(e) {
         $.ajax({
             url : $(this).attr('action'),
             type: $(this).attr('method'),
@@ -166,4 +166,25 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    /*
+    Select each input field and update data on blur
+     */
+    $("#postEditForm .form-control").blur(function(e) {
+        console.log("edited");
+        $.ajax({
+            url : $("#postEditForm").attr('action'),
+            type: $("#postEditForm").attr('method'),
+            data : $("#postEditForm").serializeArray(),
+            beforeSend: function()
+            {
+            },
+            success: function(data)
+            {
+                console.log("success");
+                console.log(data.status);
+                console.log(data.message);
+            }
+        });
+        e.preventDefault();
+    });
 });

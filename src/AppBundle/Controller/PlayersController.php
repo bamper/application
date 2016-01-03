@@ -34,7 +34,6 @@ class PlayersController extends Controller
             $id = $user->getID();
             $playersToView = array();
 
-            //TODO create query
             $qb = $em->createQueryBuilder();
             $qb->select('user')
                 ->from('AppBundle:User', 'user')

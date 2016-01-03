@@ -62,6 +62,10 @@ dashboard_post_edit:
     path:     /post
     defaults: { _controller: AppBundle:Post:edit }
 
+dashboard_post_delete:
+    path:     /post/delete/{id}
+    defaults: { _controller: AppBundle:Post:delete }
+
 dashboard:
     path:    /dashboard
     defaults: { _controller: AppBundle:Dashboard:index }

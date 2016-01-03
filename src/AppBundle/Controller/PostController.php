@@ -75,8 +75,53 @@ class PostController extends Controller
         }
     }
 
-    public function editAction()
+    public function editAction(Request $request)
     {
-        die('123');
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $user = $this->getUser();
+        $post = $user->getPost();
+
+        $form = $this->createForm(new PostType(), $post);
+        $form->handleRequest($request);
+
+        if($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $data = $form->getData();
+            $post->setNote($data->getNote());
+            $post->setType($data->getType());
+
+            $em->flush();
+
+            if ($request->isXmlHttpRequest()) {
+                $array = array('status' => 200, 'message' => 'Edited');
+                $response = new JsonResponse($array);
+
+                return $response;
+            }
+        }
+
+        return $this->render('AppBundle:Post:show.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
+
+    public function deleteAction($id)
+    {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Post');
+
+        $post = $repository->find($id);
+
+        $em->remove($post);
+        $em->flush();
+
+        return $this->redirectToRoute('dashboard');
     }
 }
