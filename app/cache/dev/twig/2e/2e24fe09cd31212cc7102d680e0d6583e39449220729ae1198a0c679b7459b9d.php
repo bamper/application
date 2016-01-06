@@ -19,8 +19,8 @@ class __TwigTemplate_739c3781312e1688cdae660469146766dc25f4de22533043e5599df71cb
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_216540a75b17b041b3e62cbed8e6d68ee4badaefbe12467755beb307f72c5e79 = $this->env->getExtension("native_profiler");
-        $__internal_216540a75b17b041b3e62cbed8e6d68ee4badaefbe12467755beb307f72c5e79->enter($__internal_216540a75b17b041b3e62cbed8e6d68ee4badaefbe12467755beb307f72c5e79_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::base.html.twig"));
+        $__internal_e97c51c2a5ffc181f9ed70a5d7362ab5393882f60052324239c36a1535ca8bc8 = $this->env->getExtension("native_profiler");
+        $__internal_e97c51c2a5ffc181f9ed70a5d7362ab5393882f60052324239c36a1535ca8bc8->enter($__internal_e97c51c2a5ffc181f9ed70a5d7362ab5393882f60052324239c36a1535ca8bc8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -36,44 +36,44 @@ class __TwigTemplate_739c3781312e1688cdae660469146766dc25f4de22533043e5599df71cb
     ";
         // line 8
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 13
+        // line 14
         echo "    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
 </head>
 <body>
 ";
-        // line 16
-        $this->displayBlock('body', $context, $blocks);
         // line 17
+        $this->displayBlock('body', $context, $blocks);
+        // line 18
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 22
+        // line 23
         echo "
 </body>
 </html>
 ";
         
-        $__internal_216540a75b17b041b3e62cbed8e6d68ee4badaefbe12467755beb307f72c5e79->leave($__internal_216540a75b17b041b3e62cbed8e6d68ee4badaefbe12467755beb307f72c5e79_prof);
+        $__internal_e97c51c2a5ffc181f9ed70a5d7362ab5393882f60052324239c36a1535ca8bc8->leave($__internal_e97c51c2a5ffc181f9ed70a5d7362ab5393882f60052324239c36a1535ca8bc8_prof);
 
     }
 
     // line 7
     public function block_title($context, array $blocks = array())
     {
-        $__internal_8fb0b2a21f2bf4cf6fe19c80ed95ae539746ff5bac7e9b0417981d4f13f43a67 = $this->env->getExtension("native_profiler");
-        $__internal_8fb0b2a21f2bf4cf6fe19c80ed95ae539746ff5bac7e9b0417981d4f13f43a67->enter($__internal_8fb0b2a21f2bf4cf6fe19c80ed95ae539746ff5bac7e9b0417981d4f13f43a67_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_99fde116a6766942765399c66b98adfe815fd846ede6028af1e41570ce2d3391 = $this->env->getExtension("native_profiler");
+        $__internal_99fde116a6766942765399c66b98adfe815fd846ede6028af1e41570ce2d3391->enter($__internal_99fde116a6766942765399c66b98adfe815fd846ede6028af1e41570ce2d3391_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Welcome!";
         
-        $__internal_8fb0b2a21f2bf4cf6fe19c80ed95ae539746ff5bac7e9b0417981d4f13f43a67->leave($__internal_8fb0b2a21f2bf4cf6fe19c80ed95ae539746ff5bac7e9b0417981d4f13f43a67_prof);
+        $__internal_99fde116a6766942765399c66b98adfe815fd846ede6028af1e41570ce2d3391->leave($__internal_99fde116a6766942765399c66b98adfe815fd846ede6028af1e41570ce2d3391_prof);
 
     }
 
     // line 8
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_b6d726dcc307de3fd216b5bc83187384eec7ae26d111a8c1eb17effca652e0a2 = $this->env->getExtension("native_profiler");
-        $__internal_b6d726dcc307de3fd216b5bc83187384eec7ae26d111a8c1eb17effca652e0a2->enter($__internal_b6d726dcc307de3fd216b5bc83187384eec7ae26d111a8c1eb17effca652e0a2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_e92ea36e4c2191e835fc4f285f530c3e7dfb36d6d2836594692312cc1e999c2e = $this->env->getExtension("native_profiler");
+        $__internal_e92ea36e4c2191e835fc4f285f530c3e7dfb36d6d2836594692312cc1e999c2e->enter($__internal_e92ea36e4c2191e835fc4f285f530c3e7dfb36d6d2836594692312cc1e999c2e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 9
         echo "        <link rel=\"stylesheet\" href=\"";
@@ -81,45 +81,51 @@ class __TwigTemplate_739c3781312e1688cdae660469146766dc25f4de22533043e5599df71cb
         echo "\"/>
         <link rel=\"stylesheet\" href=\"";
         // line 10
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/app/css/font-awesome/css/font-awesome.min.css"), "html", null, true);
+        echo "\">
+        <link rel=\"stylesheet\" href=\"";
+        // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/app/css/style.css"), "html", null, true);
         echo "\"/>
 
     ";
         
-        $__internal_b6d726dcc307de3fd216b5bc83187384eec7ae26d111a8c1eb17effca652e0a2->leave($__internal_b6d726dcc307de3fd216b5bc83187384eec7ae26d111a8c1eb17effca652e0a2_prof);
-
-    }
-
-    // line 16
-    public function block_body($context, array $blocks = array())
-    {
-        $__internal_4197f96312f60145ad8e6d4a7dfd1ad17239893944b95e4976ee5c4443d9b560 = $this->env->getExtension("native_profiler");
-        $__internal_4197f96312f60145ad8e6d4a7dfd1ad17239893944b95e4976ee5c4443d9b560->enter($__internal_4197f96312f60145ad8e6d4a7dfd1ad17239893944b95e4976ee5c4443d9b560_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
-
-        
-        $__internal_4197f96312f60145ad8e6d4a7dfd1ad17239893944b95e4976ee5c4443d9b560->leave($__internal_4197f96312f60145ad8e6d4a7dfd1ad17239893944b95e4976ee5c4443d9b560_prof);
+        $__internal_e92ea36e4c2191e835fc4f285f530c3e7dfb36d6d2836594692312cc1e999c2e->leave($__internal_e92ea36e4c2191e835fc4f285f530c3e7dfb36d6d2836594692312cc1e999c2e_prof);
 
     }
 
     // line 17
+    public function block_body($context, array $blocks = array())
+    {
+        $__internal_f43213f3422309a567c30b2e0f46382d70a746b891aa50ad22076c25aa9beddb = $this->env->getExtension("native_profiler");
+        $__internal_f43213f3422309a567c30b2e0f46382d70a746b891aa50ad22076c25aa9beddb->enter($__internal_f43213f3422309a567c30b2e0f46382d70a746b891aa50ad22076c25aa9beddb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+
+        
+        $__internal_f43213f3422309a567c30b2e0f46382d70a746b891aa50ad22076c25aa9beddb->leave($__internal_f43213f3422309a567c30b2e0f46382d70a746b891aa50ad22076c25aa9beddb_prof);
+
+    }
+
+    // line 18
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_fdc7bf5fe51b7ad46eaca19b45e8437cac4788ae2543941a2b5bde10f67419ba = $this->env->getExtension("native_profiler");
-        $__internal_fdc7bf5fe51b7ad46eaca19b45e8437cac4788ae2543941a2b5bde10f67419ba->enter($__internal_fdc7bf5fe51b7ad46eaca19b45e8437cac4788ae2543941a2b5bde10f67419ba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_027a6bf693a9e788d3a4a326fe06c88ad1605a47f133dcbb7e6f62a861803aa9 = $this->env->getExtension("native_profiler");
+        $__internal_027a6bf693a9e788d3a4a326fe06c88ad1605a47f133dcbb7e6f62a861803aa9->enter($__internal_027a6bf693a9e788d3a4a326fe06c88ad1605a47f133dcbb7e6f62a861803aa9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 18
-        echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>
-    <script src=\"";
         // line 19
-        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/app/js/bootstrap.min.js"), "html", null, true);
+        echo "    <script src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/app/js/jquery-1.11.3.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
         // line 20
+        echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/app/js/bootstrap.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 21
         echo twig_escape_filter($this->env, $this->env->getExtension('asset')->getAssetUrl("bundles/app/js/main.js"), "html", null, true);
         echo "\"></script>
 ";
         
-        $__internal_fdc7bf5fe51b7ad46eaca19b45e8437cac4788ae2543941a2b5bde10f67419ba->leave($__internal_fdc7bf5fe51b7ad46eaca19b45e8437cac4788ae2543941a2b5bde10f67419ba_prof);
+        $__internal_027a6bf693a9e788d3a4a326fe06c88ad1605a47f133dcbb7e6f62a861803aa9->leave($__internal_027a6bf693a9e788d3a4a326fe06c88ad1605a47f133dcbb7e6f62a861803aa9_prof);
 
     }
 
@@ -135,7 +141,7 @@ class __TwigTemplate_739c3781312e1688cdae660469146766dc25f4de22533043e5599df71cb
 
     public function getDebugInfo()
     {
-        return array (  118 => 20,  114 => 19,  111 => 18,  105 => 17,  94 => 16,  84 => 10,  79 => 9,  73 => 8,  61 => 7,  51 => 22,  49 => 17,  47 => 16,  40 => 13,  38 => 8,  34 => 7,  26 => 1,);
+        return array (  124 => 21,  120 => 20,  115 => 19,  109 => 18,  98 => 17,  88 => 11,  84 => 10,  79 => 9,  73 => 8,  61 => 7,  51 => 23,  49 => 18,  47 => 17,  40 => 14,  38 => 8,  34 => 7,  26 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -147,6 +153,7 @@ class __TwigTemplate_739c3781312e1688cdae660469146766dc25f4de22533043e5599df71cb
 /*     <title>{% block title %}Welcome!{% endblock %}</title>*/
 /*     {% block stylesheets %}*/
 /*         <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap.min.css') }}"/>*/
+/*         <link rel="stylesheet" href="{{ asset('bundles/app/css/font-awesome/css/font-awesome.min.css') }}">*/
 /*         <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}"/>*/
 /* */
 /*     {% endblock %}*/
@@ -155,7 +162,7 @@ class __TwigTemplate_739c3781312e1688cdae660469146766dc25f4de22533043e5599df71cb
 /* <body>*/
 /* {% block body %}{% endblock %}*/
 /* {% block javascripts %}*/
-/*     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>*/
+/*     <script src="{{ asset('bundles/app/js/jquery-1.11.3.min.js') }}"></script>*/
 /*     <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>*/
 /*     <script src="{{ asset('bundles/app/js/main.js') }}"></script>*/
 /* {% endblock %}*/

@@ -248,6 +248,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'AppBundle\\Controller\\PostController::editAction',  '_route' => 'dashboard_post_edit',);
                 }
 
+                // dashboard_post_delete
+                if (0 === strpos($pathinfo, '/post/delete') && preg_match('#^/post/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dashboard_post_delete')), array (  '_controller' => 'AppBundle\\Controller\\PostController::deleteAction',));
+                }
+
             }
 
         }

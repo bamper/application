@@ -82,4 +82,9 @@ class ProfileController extends Controller
             'form' => $form->createView()
         ));
     }
+
+    public function settingsAction()
+    {
+
+    }
 }

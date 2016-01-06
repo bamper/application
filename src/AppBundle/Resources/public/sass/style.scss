@@ -1,0 +1,83 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/functions";
+
+/* import partials */
+
+@import "partials/messages";
+
+/* stuff to refactor */
+
+.navbar {
+  border-radius: 0;
+}
+
+.btn-login {
+  margin-left: 15px;
+}
+
+.navbar-img {
+  max-width:100px;
+  margin-top: -7px;
+}
+
+.panel {
+  margin-bottom: 0px;
+}
+
+.img-loading {
+  background-image: url("../img/ajax-loader.gif");
+  width: 64px;
+  height: 64px;
+}
+
+.glyphicon-refresh-animate {
+  -animation: spin .7s infinite linear;
+  -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+  from { -webkit-transform: rotate(0deg);}
+  to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg);}
+  to { transform: scale(1) rotate(360deg);}
+}
+
+
+#players .panel-footer {
+  padding: 0;
+}
+
+#players .btn-group>.btn {
+  border-radius: 0;
+}
+
+#players .panel-title>.small {
+  margin-top: 4px;
+}
+
+#players .row {
+  margin-bottom: 25px;
+}
+
+#tab-controls {
+  padding: 0;
+  list-style: none;
+}
+
+#tab-controls li {
+  display: inline;
+}
+
+#tab-controls li a {
+  color: gray;
+  text-decoration: none;
+}
+
+#tab-controls li a:hover {
+  color: #2b669a;
+}
+

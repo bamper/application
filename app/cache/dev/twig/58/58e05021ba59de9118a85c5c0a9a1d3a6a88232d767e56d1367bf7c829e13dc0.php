@@ -22,20 +22,20 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f81d0d7200cbd8e5180ed047676c6572211aa72a7db9434fd5b1082af2dfd222 = $this->env->getExtension("native_profiler");
-        $__internal_f81d0d7200cbd8e5180ed047676c6572211aa72a7db9434fd5b1082af2dfd222->enter($__internal_f81d0d7200cbd8e5180ed047676c6572211aa72a7db9434fd5b1082af2dfd222_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::layout.html.twig"));
+        $__internal_c8b2ae84d4f8425af67b864ff298b56c61b46a7e8a6b2d64f1be603a330abe5d = $this->env->getExtension("native_profiler");
+        $__internal_c8b2ae84d4f8425af67b864ff298b56c61b46a7e8a6b2d64f1be603a330abe5d->enter($__internal_c8b2ae84d4f8425af67b864ff298b56c61b46a7e8a6b2d64f1be603a330abe5d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::layout.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_f81d0d7200cbd8e5180ed047676c6572211aa72a7db9434fd5b1082af2dfd222->leave($__internal_f81d0d7200cbd8e5180ed047676c6572211aa72a7db9434fd5b1082af2dfd222_prof);
+        $__internal_c8b2ae84d4f8425af67b864ff298b56c61b46a7e8a6b2d64f1be603a330abe5d->leave($__internal_c8b2ae84d4f8425af67b864ff298b56c61b46a7e8a6b2d64f1be603a330abe5d_prof);
 
     }
 
     // line 2
     public function block_body($context, array $blocks = array())
     {
-        $__internal_75925aa9b646fccec62650a0d14000046df1430c4398a5894172de1e82e10a66 = $this->env->getExtension("native_profiler");
-        $__internal_75925aa9b646fccec62650a0d14000046df1430c4398a5894172de1e82e10a66->enter($__internal_75925aa9b646fccec62650a0d14000046df1430c4398a5894172de1e82e10a66_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_5b9fcccd95476ad062f1b0ef35cef17fb08780e521217ae12c5dbf8ab53a78a9 = $this->env->getExtension("native_profiler");
+        $__internal_5b9fcccd95476ad062f1b0ef35cef17fb08780e521217ae12c5dbf8ab53a78a9->enter($__internal_5b9fcccd95476ad062f1b0ef35cef17fb08780e521217ae12c5dbf8ab53a78a9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
         echo "    <nav class=\"navbar navbar-default navbar-inverse\">
@@ -98,18 +98,20 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
   </div><!-- /.container-fluid -->
 </nav>
     <div class=\"container\" style=\"padding-top: 75px;\">
+        <div class=\"row\">
         ";
-        // line 42
+        // line 43
         echo "        ";
         $this->displayBlock('content', $context, $blocks);
-        // line 43
-        echo "    </div>
+        // line 44
+        echo "        </div>
+    </div>
 
     ";
-        // line 45
+        // line 47
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_ANONYMOUSLY")) {
-            // line 46
-            echo "    <div id=\"loginModal\" class=\"modal fade bs-example-modal-sm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\">
+            // line 48
+            echo "    <div id=\"actionsModal\" class=\"modal fade bs-example-modal-sm\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"actionsModal\">
         <div class=\"modal-dialog modal-sm\">
             <div class=\"modal-content\">
                 <div class=\"panel panel-default\">
@@ -117,61 +119,141 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
                         <h3 class=\"panel-title\">Logowanie</h3>
                     </div>
                     <div class=\"panel-body\">
-                        <form action=\"";
-            // line 54
+                        <div class=\"tab-content\">
+                            <div role=\"tabpanel\" class=\"tab-pane active\" id=\"loginPanel\">
+                                ";
+            // line 59
+            echo "                                <form action=\"";
             echo $this->env->getExtension('routing')->getPath("login_check");
             echo "\" method=\"post\" id=\"loginForm\">
-
-                            <div class=\"alert alert-danger\" role=\"alert\" id=\"loginFormError\">";
-            // line 56
+                                    <div class=\"alert alert-danger\" role=\"alert\" id=\"loginFormError\">";
+            // line 60
             echo "</div>
-
-                            <div class=\"form-group\">
-                                <div class=\"input-group\">
-                                    <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-user\"></span></span>
-                                    <input class=\"form-control\" type=\"text\" id=\"username\" name=\"_username\" value=\"";
-            // line 61
+                                    <div class=\"form-group\">
+                                        <div class=\"input-group\">
+                                            <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-user\"></span></span>
+                                            <input class=\"form-control\" type=\"text\" id=\"username\" name=\"_username\" value=\"";
+            // line 64
             if (array_key_exists("last_username", $context)) {
                 echo " ";
                 echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
                 echo " ";
             }
             echo "\" placeholder=\"Nazwa użytkownika\"/>
-                                </div>
-                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class=\"form-group\">
-                                <div class=\"input-group\">
-                                    <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
-                                    <input class=\"form-control\" type=\"password\" id=\"password\" name=\"_password\" placeholder=\"Hasło\" />
-                                </div>
-                            </div>
+                                    <div class=\"form-group\">
+                                        <div class=\"input-group\">
+                                            <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+                                            <input class=\"form-control\" type=\"password\" id=\"password\" name=\"_password\" placeholder=\"Hasło\" />
+                                        </div>
+                                    </div>
 
-                            <div class=\"form-group\">
-                                <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" checked />
-                                <label for=\"remember_me\">Zapamiętaj mnie</label>
-                            </div>
+                                    <div class=\"form-group\">
+                                        <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" checked=\"false\" />
+                                        <label for=\"remember_me\">Zapamiętaj mnie</label>
+                                    </div>
 
-                            <p><a href=\"";
-            // line 77
-            echo $this->env->getExtension('routing')->getPath("user_resetting_request");
-            echo "\" class=\"small\">Zapomniałeś hasła?</a></p>
-                            <p><a href=\"";
-            // line 78
-            echo $this->env->getExtension('routing')->getPath("user_registration_register");
-            echo "\" class=\"small\">Zarejestruj się</a></p>
-
-                            <input type=\"hidden\" name=\"_csrf_token\" value=\"";
+                                    <input type=\"hidden\" name=\"_csrf_token\" value=\"";
             // line 80
             echo twig_escape_filter($this->env, $this->env->getExtension('form')->renderCsrfToken("authenticate"), "html", null, true);
             echo "\">
-                            <input type=\"hidden\" name=\"_target_path\" value=\"/profile\" />
 
-                            <div class=\"form-group\">
-                                <button class=\"form-control btn btn-primary\" type=\"submit\" id=\"login-submit-button\">Zaloguj się</button>
-                            </div>
+                                    <div class=\"form-group\">
+                                        <button class=\"form-control btn btn-primary\" type=\"submit\" id=\"login-submit-button\">Zaloguj się</button>
+                                    </div>
 
-                        </form>
+                                    <ul role=\"tablist\" id=\"tab-controls\">
+                                        <li role=\"presentation\"><a href=\"#recoveryPanel\" class=\"small\" aria-controls=\"forgotten\" role=\"tab\" data-toggle=\"tab\">Zapomniałeś hasła?</a></li>
+                                        <li> | </li>
+                                        <li role=\"presentation\"><a href=\"#registrationPanel\" class=\"small\" aria-controls=\"registration\" role=\"tab\" data-toggle=\"tab\">Zarejestruj się</a></li>
+                                    </ul>
+                                </form>
+                                ";
+            // line 93
+            echo "                            </div>
+
+                            <div role=\"tabpanel\" class=\"tab-pane\" id=\"registrationPanel\">
+                                ";
+            // line 97
+            echo "                                <form action=\"";
+            echo $this->env->getExtension('routing')->getPath("user_registration_register");
+            echo "\" method=\"post\" id=\"registrationForm\">
+                                    <div class=\"form-group\">
+                                        <div class=\"input-group\" id=\"input-group-username\">
+                                            <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-user\"></span></span>
+                                            <input class=\"form-control\" type=\"text\" id=\"registration_user_username\" name=\"registration[user][username]\" placeholder=\"Nazwa użytkownika\"/>
+                                        </div>
+                                    </div>
+
+                                    <div class=\"form-group\">
+                                        <div class=\"input-group\" id=\"input-group-email\">
+                                            <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-envelope\"></span></span>
+                                            <input class=\"form-control\" type=\"text\" id=\"registration_user_email\" name=\"registration[user][email]\" placeholder=\"E-mail\" />
+                                        </div>
+                                    </div>
+
+                                    <div class=\"form-group\">
+                                        <div class=\"input-group\" id=\"input-group-password\">
+                                            <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+                                            <input class=\"form-control\" type=\"password\" id=\"registration_user_password_password\" name=\"registration[user][password][password]\" placeholder=\"Hasło\" />
+                                        </div>
+                                    </div>
+
+                                    <div class=\"form-group\">
+                                        <div class=\"input-group\" id=\"input-group-password-confirm\">
+                                            <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-lock\"></span></span>
+                                            <input class=\"form-control\" type=\"password\" id=\"registration_user_password_confirm\" name=\"registration[user][password][confirm]\" placeholder=\"Powtórz hasło\" />
+                                        </div>
+                                    </div>
+
+                                    <div class=\"form-group\">
+                                        <input type=\"hidden\" id=\"registration__token\" name=\"registration[_token]\" value=\"";
+            // line 127
+            echo twig_escape_filter($this->env, $this->env->getExtension('form')->renderCsrfToken("registration"), "html", null, true);
+            echo "\">
+                                    </div>
+
+                                    <div class=\"form-group\">
+                                        <button class=\"form-control btn btn-primary\" type=\"submit\" id=\"registration-submit-button\">Zarejestruj się</button>
+                                    </div>
+
+                                    <ul role=\"tablist\" id=\"tab-controls\">
+                                        <li role=\"presentation\"><a href=\"#loginPanel\" class=\"small\" aria-controls=\"login\" role=\"tab\" data-toggle=\"tab\">Zaloguj się</a></li>
+                                    </ul>
+                                </form>
+                                ";
+            // line 139
+            echo "                            </div>
+
+                            <div role=\"tabpanel\" class=\"tab-pane\" id=\"recoveryPanel\">
+                                ";
+            // line 143
+            echo "                                <form action=\"";
+            echo $this->env->getExtension('routing')->getPath("user_resetting_request");
+            echo "\" method=\"post\" id=\"recoveryForm\">
+                                    <div class=\"form-group\">
+                                        <div class=\"input-group\">
+                                            <span class=\"input-group-addon\"><span class=\"glyphicon glyphicon-envelope\"></span></span>
+                                            <input class=\"form-control\" type=\"text\" id=\"recovery_email\" name=\"email\" placeholder=\"E-mail\"/>
+                                        </div>
+                                    </div>
+
+                                    <div class=\"form-group\">
+                                        <button class=\"form-control btn btn-primary\" type=\"submit\" id=\"recovery-submit-button\">Wyślij</button>
+                                    </div>
+
+                                    <ul role=\"tablist\" id=\"tab-controls\">
+                                        <li role=\"presentation\"><a href=\"#loginPanel\" class=\"small\" aria-controls=\"login\" role=\"tab\" data-toggle=\"tab\">Zaloguj się</a></li>
+                                        <li> | </li>
+                                        <li role=\"presentation\"><a href=\"#registrationPanel\" class=\"small\" aria-controls=\"registration\" role=\"tab\" data-toggle=\"tab\">Zarejestruj się</a></li>
+                                    </ul>
+                                </form>
+                                ";
+            // line 162
+            echo "                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -179,20 +261,28 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
     </div>
     ";
         }
+        // line 170
+        echo "    <div class=\" navbar-fixed-bottom\">
+        <div class=\"container\" id=\"messages-box\">
+            ";
+        // line 173
+        echo "        </div>
+    </div>
+";
         
-        $__internal_75925aa9b646fccec62650a0d14000046df1430c4398a5894172de1e82e10a66->leave($__internal_75925aa9b646fccec62650a0d14000046df1430c4398a5894172de1e82e10a66_prof);
+        $__internal_5b9fcccd95476ad062f1b0ef35cef17fb08780e521217ae12c5dbf8ab53a78a9->leave($__internal_5b9fcccd95476ad062f1b0ef35cef17fb08780e521217ae12c5dbf8ab53a78a9_prof);
 
     }
 
-    // line 42
+    // line 43
     public function block_content($context, array $blocks = array())
     {
-        $__internal_992697f6cb682476790652a9742e0498090e0c4476a30e55db54670905b412f6 = $this->env->getExtension("native_profiler");
-        $__internal_992697f6cb682476790652a9742e0498090e0c4476a30e55db54670905b412f6->enter($__internal_992697f6cb682476790652a9742e0498090e0c4476a30e55db54670905b412f6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_f8fd31e2bf3e47aaf7d234c4183248dc099e9bcac47367bc569de3b7769176bc = $this->env->getExtension("native_profiler");
+        $__internal_f8fd31e2bf3e47aaf7d234c4183248dc099e9bcac47367bc569de3b7769176bc->enter($__internal_f8fd31e2bf3e47aaf7d234c4183248dc099e9bcac47367bc569de3b7769176bc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         echo " ";
         
-        $__internal_992697f6cb682476790652a9742e0498090e0c4476a30e55db54670905b412f6->leave($__internal_992697f6cb682476790652a9742e0498090e0c4476a30e55db54670905b412f6_prof);
+        $__internal_f8fd31e2bf3e47aaf7d234c4183248dc099e9bcac47367bc569de3b7769176bc->leave($__internal_f8fd31e2bf3e47aaf7d234c4183248dc099e9bcac47367bc569de3b7769176bc_prof);
 
     }
 
@@ -208,7 +298,7 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 
     public function getDebugInfo()
     {
-        return array (  188 => 42,  166 => 80,  161 => 78,  157 => 77,  134 => 61,  127 => 56,  122 => 54,  112 => 46,  110 => 45,  106 => 43,  103 => 42,  96 => 36,  89 => 32,  83 => 29,  79 => 28,  71 => 26,  67 => 24,  63 => 22,  61 => 21,  41 => 3,  35 => 2,  11 => 1,);
+        return array (  278 => 43,  269 => 173,  265 => 170,  255 => 162,  233 => 143,  228 => 139,  214 => 127,  180 => 97,  175 => 93,  160 => 80,  137 => 64,  131 => 60,  126 => 59,  114 => 48,  112 => 47,  107 => 44,  104 => 43,  96 => 36,  89 => 32,  83 => 29,  79 => 28,  71 => 26,  67 => 24,  63 => 22,  61 => 21,  41 => 3,  35 => 2,  11 => 1,);
     }
 }
 /* {% extends '::base.html.twig' %}*/
@@ -251,12 +341,14 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 /*   </div><!-- /.container-fluid -->*/
 /* </nav>*/
 /*     <div class="container" style="padding-top: 75px;">*/
+/*         <div class="row">*/
 /*         {# {% if app.user is defined %} {{ dump(app.user) }} {% endif %}#}*/
 /*         {% block content %} {% endblock %}*/
+/*         </div>*/
 /*     </div>*/
 /* */
-/*     {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY")%}*/
-/*     <div id="loginModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">*/
+/*     {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %}*/
+/*     <div id="actionsModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="actionsModal">*/
 /*         <div class="modal-dialog modal-sm">*/
 /*             <div class="modal-content">*/
 /*                 <div class="panel panel-default">*/
@@ -264,44 +356,123 @@ class __TwigTemplate_5b5859ff7d7b1a90e9b46bcb210c54d95d91dbb6dbbb2a5d8efd0623d57
 /*                         <h3 class="panel-title">Logowanie</h3>*/
 /*                     </div>*/
 /*                     <div class="panel-body">*/
-/*                         <form action="{{ path('login_check') }}" method="post" id="loginForm">*/
+/*                         <div class="tab-content">*/
+/*                             <div role="tabpanel" class="tab-pane active" id="loginPanel">*/
+/*                                 {# begin # loginForm #}*/
+/*                                 <form action="{{ path('login_check') }}" method="post" id="loginForm">*/
+/*                                     <div class="alert alert-danger" role="alert" id="loginFormError">{# Login errors field #}</div>*/
+/*                                     <div class="form-group">*/
+/*                                         <div class="input-group">*/
+/*                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>*/
+/*                                             <input class="form-control" type="text" id="username" name="_username" value="{% if last_username is defined %} {{ last_username }} {% endif %}" placeholder="Nazwa użytkownika"/>*/
+/*                                         </div>*/
+/*                                     </div>*/
 /* */
-/*                             <div class="alert alert-danger" role="alert" id="loginFormError">{# Login errors field #}</div>*/
+/*                                     <div class="form-group">*/
+/*                                         <div class="input-group">*/
+/*                                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>*/
+/*                                             <input class="form-control" type="password" id="password" name="_password" placeholder="Hasło" />*/
+/*                                         </div>*/
+/*                                     </div>*/
 /* */
-/*                             <div class="form-group">*/
-/*                                 <div class="input-group">*/
-/*                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>*/
-/*                                     <input class="form-control" type="text" id="username" name="_username" value="{% if last_username is defined %} {{ last_username }} {% endif %}" placeholder="Nazwa użytkownika"/>*/
-/*                                 </div>*/
+/*                                     <div class="form-group">*/
+/*                                         <input type="checkbox" id="remember_me" name="_remember_me" checked="false" />*/
+/*                                         <label for="remember_me">Zapamiętaj mnie</label>*/
+/*                                     </div>*/
+/* */
+/*                                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">*/
+/* */
+/*                                     <div class="form-group">*/
+/*                                         <button class="form-control btn btn-primary" type="submit" id="login-submit-button">Zaloguj się</button>*/
+/*                                     </div>*/
+/* */
+/*                                     <ul role="tablist" id="tab-controls">*/
+/*                                         <li role="presentation"><a href="#recoveryPanel" class="small" aria-controls="forgotten" role="tab" data-toggle="tab">Zapomniałeś hasła?</a></li>*/
+/*                                         <li> | </li>*/
+/*                                         <li role="presentation"><a href="#registrationPanel" class="small" aria-controls="registration" role="tab" data-toggle="tab">Zarejestruj się</a></li>*/
+/*                                     </ul>*/
+/*                                 </form>*/
+/*                                 {# end # loginForm #}*/
 /*                             </div>*/
 /* */
-/*                             <div class="form-group">*/
-/*                                 <div class="input-group">*/
-/*                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>*/
-/*                                     <input class="form-control" type="password" id="password" name="_password" placeholder="Hasło" />*/
-/*                                 </div>*/
+/*                             <div role="tabpanel" class="tab-pane" id="registrationPanel">*/
+/*                                 {# begin # registerForm#}*/
+/*                                 <form action="{{ path('user_registration_register') }}" method="post" id="registrationForm">*/
+/*                                     <div class="form-group">*/
+/*                                         <div class="input-group" id="input-group-username">*/
+/*                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>*/
+/*                                             <input class="form-control" type="text" id="registration_user_username" name="registration[user][username]" placeholder="Nazwa użytkownika"/>*/
+/*                                         </div>*/
+/*                                     </div>*/
+/* */
+/*                                     <div class="form-group">*/
+/*                                         <div class="input-group" id="input-group-email">*/
+/*                                             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>*/
+/*                                             <input class="form-control" type="text" id="registration_user_email" name="registration[user][email]" placeholder="E-mail" />*/
+/*                                         </div>*/
+/*                                     </div>*/
+/* */
+/*                                     <div class="form-group">*/
+/*                                         <div class="input-group" id="input-group-password">*/
+/*                                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>*/
+/*                                             <input class="form-control" type="password" id="registration_user_password_password" name="registration[user][password][password]" placeholder="Hasło" />*/
+/*                                         </div>*/
+/*                                     </div>*/
+/* */
+/*                                     <div class="form-group">*/
+/*                                         <div class="input-group" id="input-group-password-confirm">*/
+/*                                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>*/
+/*                                             <input class="form-control" type="password" id="registration_user_password_confirm" name="registration[user][password][confirm]" placeholder="Powtórz hasło" />*/
+/*                                         </div>*/
+/*                                     </div>*/
+/* */
+/*                                     <div class="form-group">*/
+/*                                         <input type="hidden" id="registration__token" name="registration[_token]" value="{{ csrf_token('registration') }}">*/
+/*                                     </div>*/
+/* */
+/*                                     <div class="form-group">*/
+/*                                         <button class="form-control btn btn-primary" type="submit" id="registration-submit-button">Zarejestruj się</button>*/
+/*                                     </div>*/
+/* */
+/*                                     <ul role="tablist" id="tab-controls">*/
+/*                                         <li role="presentation"><a href="#loginPanel" class="small" aria-controls="login" role="tab" data-toggle="tab">Zaloguj się</a></li>*/
+/*                                     </ul>*/
+/*                                 </form>*/
+/*                                 {# end # registerForm#}*/
 /*                             </div>*/
 /* */
-/*                             <div class="form-group">*/
-/*                                 <input type="checkbox" id="remember_me" name="_remember_me" checked />*/
-/*                                 <label for="remember_me">Zapamiętaj mnie</label>*/
+/*                             <div role="tabpanel" class="tab-pane" id="recoveryPanel">*/
+/*                                 {# begin # recoveryPanel #}*/
+/*                                 <form action="{{ path('user_resetting_request') }}" method="post" id="recoveryForm">*/
+/*                                     <div class="form-group">*/
+/*                                         <div class="input-group">*/
+/*                                             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>*/
+/*                                             <input class="form-control" type="text" id="recovery_email" name="email" placeholder="E-mail"/>*/
+/*                                         </div>*/
+/*                                     </div>*/
+/* */
+/*                                     <div class="form-group">*/
+/*                                         <button class="form-control btn btn-primary" type="submit" id="recovery-submit-button">Wyślij</button>*/
+/*                                     </div>*/
+/* */
+/*                                     <ul role="tablist" id="tab-controls">*/
+/*                                         <li role="presentation"><a href="#loginPanel" class="small" aria-controls="login" role="tab" data-toggle="tab">Zaloguj się</a></li>*/
+/*                                         <li> | </li>*/
+/*                                         <li role="presentation"><a href="#registrationPanel" class="small" aria-controls="registration" role="tab" data-toggle="tab">Zarejestruj się</a></li>*/
+/*                                     </ul>*/
+/*                                 </form>*/
+/*                                 {# end # recoveryPanel #}*/
 /*                             </div>*/
-/* */
-/*                             <p><a href="{{ path('user_resetting_request') }}" class="small">Zapomniałeś hasła?</a></p>*/
-/*                             <p><a href="{{ path('user_registration_register') }}" class="small">Zarejestruj się</a></p>*/
-/* */
-/*                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">*/
-/*                             <input type="hidden" name="_target_path" value="/profile" />*/
-/* */
-/*                             <div class="form-group">*/
-/*                                 <button class="form-control btn btn-primary" type="submit" id="login-submit-button">Zaloguj się</button>*/
-/*                             </div>*/
-/* */
-/*                         </form>*/
+/*                         </div>*/
 /*                     </div>*/
 /*                 </div>*/
 /*             </div>*/
 /*         </div>*/
 /*     </div>*/
 /*     {% endif %}*/
+/*     <div class=" navbar-fixed-bottom">*/
+/*         <div class="container" id="messages-box">*/
+/*             {# messages #}*/
+/*         </div>*/
+/*     </div>*/
 /* {% endblock %}*/

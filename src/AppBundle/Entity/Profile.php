@@ -381,4 +381,17 @@ class Profile
     {
         return $this->steam_avatarfull;
     }
+
+    /**
+     * Set steam_avatarmedium
+     *
+     * @param string $steamAvatarmedium
+     * @return Profile
+     */
+    public function setSteamAvatarmedium($steamAvatarmedium)
+    {
+        $this->steam_avatarmedium = $steamAvatarmedium;
+    
+        return $this;
+    }
 }

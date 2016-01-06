@@ -31,7 +31,6 @@ class PlayersController extends Controller
             $minimumRank = $data->getMinimumRank();
             $maximumRank = $data->getMaximumRank();
             $type = $data->getType();
-            $id = $user->getID();
             $playersToView = array();
 
             $qb = $em->createQueryBuilder();
@@ -62,6 +61,7 @@ class PlayersController extends Controller
                 $numberOfAnswers = $player->getPost()->getNumberOfAnswers();
                 $created = $player->getPost()->getCreatedAt();
                 $note = $player->getPost()->getNote();
+                $id = $player->getID();
 
                 $carbon = Carbon::instance($created);
 
@@ -73,7 +73,8 @@ class PlayersController extends Controller
                     'views' => stripslashes($views),
                     'numberOfAnswers' => stripslashes($numberOfAnswers),
                     'createdAt' => $carbon->diffForHumans(),
-                    'note' => stripslashes($note)
+                    'note' => stripslashes($note),
+                    'id' => $id
                 );
             }
 

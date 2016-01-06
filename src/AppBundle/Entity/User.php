@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\JoinColumn;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Table(name="app_users")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
@@ -120,6 +120,11 @@ class User implements AdvancedUserInterface, \Serializable
      */
     protected $post;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="user")
+     */
+    private $messages;
+
     public function __construct()
     {
         $this->enabled = false;
@@ -132,6 +137,7 @@ class User implements AdvancedUserInterface, \Serializable
         $this->passwordRequestedAt = null;
         $this->time = time();
         $this->firstLogin = true;
+        $this->messages = new ArrayCollection();
         $this->generateConfirmationToken();
 
     }
@@ -536,5 +542,38 @@ class User implements AdvancedUserInterface, \Serializable
     public function getPost()
     {
         return $this->post;
+    }
+
+    /**
+     * Add messages
+     *
+     * @param \AppBundle\Entity\Message $messages
+     * @return User
+     */
+    public function addMessage(\AppBundle\Entity\Message $messages)
+    {
+        $this->messages[] = $messages;
+    
+        return $this;
+    }
+
+    /**
+     * Remove messages
+     *
+     * @param \AppBundle\Entity\Message $messages
+     */
+    public function removeMessage(\AppBundle\Entity\Message $messages)
+    {
+        $this->messages->removeElement($messages);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }
